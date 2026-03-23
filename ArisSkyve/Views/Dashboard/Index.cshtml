@@ -1,0 +1,317 @@
+﻿@{
+    Layout = null;
+}
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aris Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background: #f4f6fb
+        }
+
+        .navbar {
+            background: linear-gradient(90deg,#1e88e5,#42a5f5)
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 22px;
+            color: white
+        }
+
+        .card {
+            border: none;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06)
+        }
+
+        .profile-cover {
+            height: 80px;
+            background: linear-gradient(90deg,#4facfe,#00f2fe);
+            border-radius: 14px 14px 0 0
+        }
+
+        .avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-top: -35px
+        }
+
+        .menu-item {
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 6px;
+            cursor: pointer
+        }
+
+            .menu-item:hover {
+                background: #eef3ff
+            }
+
+        .post-input {
+            border-radius: 30px
+        }
+
+        .job-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee
+        }
+
+            .job-item:last-child {
+                border: none
+            }
+
+        .right-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555
+        }
+
+        .footer {
+            font-size: 13px;
+            color: #777;
+            text-align: center;
+            margin-top: 20px
+        }
+
+        .SearchContainer{
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 1000px;
+        }
+
+            .SearchContainer i {
+                position: absolute;
+                left: 32px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #777;
+            }
+
+            .SearchContainer input {
+                padding-left: 35px;
+            }
+        .navbar .nav-link {
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+            .navbar .nav-link::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 3px;
+                background: white;
+                transition: width 0.25s ease;
+            }
+
+            .navbar .nav-link:hover::after {
+                width: 100%;
+            }
+
+        @@media (max-width:991px) {
+            .sidebar-right {
+                margin-top: 20px
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar d-flex navbar-expand-lg navbar-dark">
+        <div class="container-fluid d-flex justify-content-between">
+            <div class="rightHeaderBar">
+                <div class="logo">Aris</div>
+            </div>
+            <div class="centerHeaderBar">
+                <div class="SearchContainer position-relative">
+                    <i class=" bi bi-search"></i>
+                    <input class="form-control w-25 ms-3" placeholder="Search...">
+
+                </div>
+            </div>
+            <div class="rightHeaderBar ms-auto pe-3">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-light d-flex flex-column align-items-center">
+                            <i class="bi bi-house fs-6"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-light d-flex flex-column align-items-center">
+                            <i class="bi bi-people fs-6"></i>
+                            <span>Network</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-light d-flex flex-column align-items-center">
+                            <i class="bi bi-briefcase fs-6"></i>
+                            <span>Jobs</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-light d-flex flex-column align-items-center">
+                            <i class="bi bi-bell fs-6"></i>
+                            <span>Notifications</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-light d-flex flex-column align-items-center">
+                            <i class="bi bi-gear fs-6"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>z
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <div class="row g-3">
+
+            <!-- LEFT SIDEBAR -->
+            <div class="col-lg-3">
+
+                <div class="card">
+                    <div class="profile-cover"></div>
+                    <div class="card-body text-center">
+                        <img src="https://i.pravatar.cc/100" class="avatar">
+                        <h6 class="mt-2 mb-0">Name Smith</h6>
+                        <small class="text-muted">Professional headline</small>
+                        <div class="mt-2">
+                            <a asp-controller="Profile" asp-action="Index" class="btn btn-primary btn-sm">Update Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 p-3">
+                    <div class="menu-item"><i class="bi bi-house"></i> Home</div>
+                    <div class="menu-item"><i class="bi bi-people"></i> My Network</div>
+                    <div class="menu-item"><i class="bi bi-briefcase"></i> Jobs</div>
+                    <div class="menu-item"><i class="bi bi-chat"></i> Messaging</div>
+                    <div class="menu-item"><i class="bi bi-gear"></i>    Settings</div>
+                    <div class="menu-item"><i class="bi bi-tools"></i> Admin</div>
+                </div>
+
+            </div>
+
+            <!-- CENTER FEED -->
+            <div class="col-lg-6">
+
+                <div class="card p-3 mb-3">
+                    <input class="form-control post-input" placeholder="Create a post...">
+                </div>
+
+                <div class="card p-3 mb-3">
+                    <h6>AI Recommended Jobs</h6>
+
+                    <div class="job-item d-flex justify-content-between">
+                        <div>
+                            <strong>Product Manager</strong>
+                            <div class="text-muted small">Brain Company</div>
+                        </div>
+                        <button class="btn btn-success btn-sm">Apply</button>
+                    </div>
+
+                    <div class="job-item d-flex justify-content-between">
+                        <div>
+                            <strong>Data Analyst</strong>
+                            <div class="text-muted small">Tech Corp</div>
+                        </div>
+                        <button class="btn btn-success btn-sm">Apply</button>
+                    </div>
+
+                    <div class="job-item d-flex justify-content-between">
+                        <div>
+                            <strong>AI Engineer</strong>
+                            <div class="text-muted small">Future AI Lab</div>
+                        </div>
+                        <button class="btn btn-success btn-sm">Apply</button>
+                    </div>
+
+                </div>
+
+                <div class="card p-3 mb-3">
+                    <h6>User Post</h6>
+                    <p class="text-muted">Working on a new project today. Excited to share updates soon!</p>
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-light btn-sm">👍 Like</button>
+                        <button class="btn btn-light btn-sm">💬 Comment</button>
+                        <button class="btn btn-light btn-sm">🔗 Share</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT SIDEBAR -->
+            <div class="col-lg-3 sidebar-right">
+
+                <div class="card p-3 mb-3">
+                    <div class="right-title mb-2">Suggested Connections</div>
+
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="https://i.pravatar.cc/40?img=1" class="rounded-circle me-2">
+                        <div>
+                            <div class="small fw-semibold">Jean Smith</div>
+                            <small class="text-muted">223 connections</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="https://i.pravatar.cc/40?img=2" class="rounded-circle me-2">
+                        <div>
+                            <div class="small fw-semibold">Jean Antors</div>
+                            <small class="text-muted">254 connections</small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card p-3 mb-3">
+                    <div class="right-title">Recommended Companies</div>
+
+                    <div class="d-flex justify-content-between mt-2">
+                        <span>RecruitRepair</span>
+                        <button class="btn btn-outline-primary btn-sm">Follow</button>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-2">
+                        <span>Compiler Screw</span>
+                        <button class="btn btn-outline-primary btn-sm">Follow</button>
+                    </div>
+
+                </div>
+
+                <div class="card p-3">
+                    <div class="right-title">Admin Dashboard</div>
+                    <small class="text-muted">Summary & management panel</small>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">© 2026 Aris Platform</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
