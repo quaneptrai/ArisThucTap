@@ -15,6 +15,10 @@ namespace ArisSkyve.Infrastructure.Data.Context
         public DbSet<Post> Posts { get; set; }
         public DbSet<PostMedia> PostMedias { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<Experience> Experiences { get; set; }
+        public DbSet<Education> Educations { get; set; }
+        public DbSet<Language> Languages { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

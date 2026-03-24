@@ -87,7 +87,7 @@ namespace ArisSkyve.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Dashboard");
         }
         public IActionResult FacebookLogin()
         {

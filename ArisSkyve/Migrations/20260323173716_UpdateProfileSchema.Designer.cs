@@ -4,6 +4,7 @@ using ArisSkyve.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArisSkyve.Migrations
 {
     [DbContext(typeof(ArisDBContext))]
-    partial class ArisDBContextModelSnapshot : ModelSnapshot
+    [Migration("20260323173716_UpdateProfileSchema")]
+    partial class UpdateProfileSchema
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -177,32 +180,6 @@ namespace ArisSkyve.Migrations
                     b.ToTable("Experiences");
                 });
 
-            modelBuilder.Entity("ArisSkyve.Domain.Entities.Language", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("EmployesAccountId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Proficiency")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EmployesAccountId");
-
-                    b.ToTable("Languages");
-                });
-
             modelBuilder.Entity("ArisSkyve.Domain.Entities.Post", b =>
                 {
                     b.Property<int>("Id")
@@ -355,17 +332,6 @@ namespace ArisSkyve.Migrations
                     b.Navigation("EmployesAccount");
                 });
 
-            modelBuilder.Entity("ArisSkyve.Domain.Entities.Language", b =>
-                {
-                    b.HasOne("ArisSkyve.Domain.Entities.EmployesAccount", "EmployesAccount")
-                        .WithMany("Languages")
-                        .HasForeignKey("EmployesAccountId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("EmployesAccount");
-                });
-
             modelBuilder.Entity("ArisSkyve.Domain.Entities.Post", b =>
                 {
                     b.HasOne("ArisSkyve.Domain.Entities.User", "User")
@@ -404,8 +370,6 @@ namespace ArisSkyve.Migrations
                     b.Navigation("Educations");
 
                     b.Navigation("Experiences");
-
-                    b.Navigation("Languages");
 
                     b.Navigation("Skills");
                 });

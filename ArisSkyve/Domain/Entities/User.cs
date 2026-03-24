@@ -12,6 +12,7 @@ namespace ArisSkyve.Domain.Entities
         public string Email { get; set; } = string.Empty;
         [Required]
         public string PasswordHash { get; set; } = string.Empty;
+        public string? AvatarUrl { get; set; }
         public EmployesAccount employesAccount { get; set; }
         public BussinessAccount bussinessAccount { get; set; }
         public List<Post> Posts { get; set; }
