@@ -1,0 +1,262 @@
+﻿@model ArisSkyve.Application.DTOs.NewUserInforDTO
+@{
+    Layout = null;
+    var username = ViewBag.Username ?? "bạn";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Aris - Hoàn thiện thông tin</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center; /* căn giữa ngang */
+            align-items: center; /* căn giữa dọc */
+            min-height: 100vh; /* full height */
+            margin: 0;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 30px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 35px;
+            color: dodgerblue;
+            text-decoration: none;
+        }
+
+        .container-centered {
+            width: 100%;
+            max-width: 500px; /* gọn vừa phải */
+            padding: 20px;
+        }
+
+        .step {
+            display: none;
+        }
+
+            .step.active {
+                display: block;
+            }
+
+        h2, p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a asp-action="Login" class="logo">Aris</a>
+    </header>
+
+    <div class="container-centered">
+        <h2 class="mb-3">Xin chào, @username!</h2>
+        <p class="text-muted mb-4">Hãy hoàn thiện thông tin của bạn để chúng tôi có thể hỗ trợ tốt nhất.</p>
+
+        <form asp-action="NewUserInfor" method="post">
+            <input type="hidden" name="UserId" value="@ViewBag.UserId" />
+
+            <!-- Step 1: Location -->
+            <div class="step active" id="step1">
+                <div class="mb-3">
+                    <label class="form-label">Địa chỉ hiện tại</label>
+                    <input asp-for="Location" id="locationInput" class="form-control" placeholder="Ví dụ: Hà Nội, KCN An Hạ, Bình Chánh" autocomplete="off" />
+                    <small class="text-muted">Hãy nhập địa chỉ nơi bạn đang sinh sống để hiển thị trên hồ sơ.</small>
+                    <div id="locationList" class="list-group" style="position:absolute; z-index:1000;"></div>
+                </div>
+                <button type="button" class="btn btn-primary next-step">Tiếp theo</button>
+            </div>
+
+            <!-- Step 2: JobTitle / Education -->
+            <div class="step" id="step2">
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" id="isStudentToggle" asp-for="IsStudent">
+                    <label class="form-check-label" for="isStudentToggle">Tôi là học sinh / sinh viên</label>
+                </div>
+
+                <div id="jobTitleDiv" class="mb-3">
+                    <label class="form-label">Chức danh hiện tại</label>
+                    <input asp-for="JobTitle" class="form-control" placeholder="Ví dụ: Kỹ sư phần mềm, Nhân viên bán hàng" />
+                    <small class="text-muted">Hãy nhập chức danh công việc hiện tại của bạn.</small>
+                </div>
+
+                <div id="educationDiv" style="display:none;">
+                    <label class="form-label">Tên trường</label>
+                    <input asp-for="Education.School" class="form-control mb-2" placeholder="Ví dụ: Đại học Bách Khoa Hà Nội" />
+
+                    <label class="form-label">Bằng cấp</label>
+                    <input asp-for="Education.Degree" class="form-control mb-2" placeholder="Ví dụ: Cử nhân" />
+
+                    <label class="form-label">Lĩnh vực học</label>
+                    <input asp-for="Education.FieldOfStudy" class="form-control mb-2" placeholder="Ví dụ: Công nghệ thông tin" />
+
+                    <label class="form-label">Năm bắt đầu học</label>
+                    <input asp-for="Education.StartYear" type="number" class="form-control mb-2" min="1900" max="2100" />
+                </div>
+
+                <button type="button" class="btn btn-secondary prev-step">Quay lại</button>
+                <button type="button" class="btn btn-primary next-step">Tiếp theo</button>
+            </div>
+
+            <!-- Step 3: JobSearchingStatus -->
+            <div class="step" id="step3">
+                <label class="form-label">Bạn có đang tìm việc không?</label>
+                <select asp-for="JobSearchingStatus" class="form-select mb-3">
+                    <option value="">-- Chọn --</option>
+                    <option value="Looking">Có, tôi đang tìm việc</option>
+                    <option value="NotLooking">Hiện tại tôi không có nhu cầu</option>
+                </select>
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" name="IsRemoteJob" value="true">
+                    <input type="hidden" name="IsRemoteJob" value="false" />
+                    <label class="form-check-label">Tôi có thể làm việc từ xa (Remote)</label>
+                </div>
+                <button type="button" class="btn btn-secondary prev-step">Quay lại</button>
+                <button type="button" class="btn btn-primary next-step">Tiếp theo</button>
+            </div>
+
+            <!-- Step 4: DesiredJob / Company -->
+            <div class="step" id="step4">
+                <div class="mb-3">
+                    <label class="form-label">Muốn tìm chức vụ gì</label>
+                    <input asp-for="DesiredJobTitle" class="form-control" placeholder="Ví dụ: Kỹ sư phần mềm" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Muốn làm ở công ty nào</label>
+                    <input asp-for="DesiredCompany" class="form-control" placeholder="Ví dụ: FPT, VNPT" />
+                </div>
+
+                <button type="button" class="btn btn-secondary prev-step">Quay lại</button>
+                <button type="button" class="btn btn-primary next-step">Tiếp theo</button>
+            </div>
+
+            <!-- Step 5: ShareWithRecruiters -->
+            <div class="step" id="step5">
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" asp-for="ShareWithRecruiters">
+                    <label class="form-check-label">Cho phép chia sẻ thông tin với nhà tuyển dụng</label>
+                </div>
+
+                <button type="button" class="btn btn-secondary prev-step">Quay lại</button>
+                <button type="submit" class="btn btn-success">Hoàn tất</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+                     $(document).ready(function(){
+
+            var currentStep = 1;
+
+            function showStep(step) {
+                $('.step').removeClass('active');
+                $('#step' + step).addClass('active');
+            }
+
+                    function validateStep(step){
+            var valid = true;
+
+            $('#step' + step + ' input, #step' + step + ' select').each(function(){
+
+                if(!$(this).is(':visible')) return true;
+
+                if($(this).attr('type') === 'checkbox'){
+                    return true; 
+                }
+
+                if(!$(this).val() || !$(this).val().trim()){
+                    valid = false;
+                    $(this).focus();
+                    alert("Vui lòng hoàn thiện thông tin!");
+                    return false;
+                }
+            });
+
+            return valid;
+        }
+
+            
+            if (!$('#isStudentToggle').is(':checked')) {
+                $('#educationDiv input').prop('disabled', true);
+            }
+                    $('form').submit(function () {
+            console.log($(this).serialize());
+        });
+
+            $('.next-step').click(function(){
+                if(validateStep(currentStep)){
+                    currentStep++;
+                    showStep(currentStep);
+                }
+            });
+
+            $('.prev-step').click(function(){
+                currentStep--;
+                showStep(currentStep);
+            });
+                    $('#locationInput').on('input', function () {
+            let query = $(this).val();
+
+            if (query.length < 3) {
+                $('#locationList').hide();
+                return;
+            }
+
+            $.ajax({
+                url: "https://nominatim.openstreetmap.org/search",
+                data: {
+                    q: query,
+                    format: "json",
+                    addressdetails: 1,
+                    limit: 5
+                },
+                success: function (data) {
+                    let html = "";
+
+                    data.forEach(item => {
+                        html += `<a href="#" class="list-group-item list-group-item-action location-item"
+                                    data-name="${item.display_name}">
+                                    ${item.display_name}
+                                 </a>`;
+                    });
+
+                    $('#locationList').html(html).show();
+                }
+            });
+        });
+            $('#isStudentToggle').change(function () {
+                if ($(this).is(':checked')) {
+                    $('#educationDiv').show();
+                    $('#educationDiv input').prop('disabled', false);
+                    $('#jobTitleDiv').hide();
+                } else {
+                    $('#educationDiv').hide();
+                    $('#educationDiv input').prop('disabled', true); 
+                    $('#jobTitleDiv').show();
+                }
+            });
+            $(document).on('click', '.location-item', function (e) {
+            e.preventDefault();
+            $('#locationInput').val($(this).data('name'));
+            $('#locationList').hide();
+        });
+        });
+    </script>
+</body>
+</html>

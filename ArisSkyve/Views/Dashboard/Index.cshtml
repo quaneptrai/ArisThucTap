@@ -1,0 +1,678 @@
+﻿@model ArisSkyve.Domain.Entities.User;
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aris Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background: #f4f6fb
+        }
+
+        .custom-nav {
+            padding-left: 6px !important;
+            padding-right: 6px !important;
+        }
+
+        .navbar {
+            min-height: 45px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            background: linear-gradient(90deg,#1e88e5,#42a5f5)
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 22px;
+            color: white;
+            text-decoration:none;
+        }
+
+        .card {
+            border: none;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06)
+        }
+
+        .profile-cover {
+            height: 80px;
+            background: linear-gradient(90deg,#4facfe,#00f2fe);
+            border-radius: 14px 14px 0 0
+        }
+
+        .avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-top: -35px
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            min-width: 70px;
+        }
+
+        .speech-decor {
+            position: absolute;
+            bottom: 65px; /* giảm từ 85 xuống */
+            left: 0px;
+            background: #4caf50;
+            color: #000;
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 13px;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+            /* bubble nhỏ */
+            .speech-decor::before,
+            .speech-decor::after {
+                content: "";
+                position: absolute;
+                background: #4caf50;
+                border-radius: 50%;
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            /* bubble nhỏ gần avatar */
+            .speech-decor::before {
+                width: 10px;
+                height: 10px;
+                bottom: -18px;
+                left: 15px;
+            }
+
+            /* bubble nhỏ hơn nữa */
+            .speech-decor::after {
+                width: 6px;
+                height: 6px;
+                bottom: -28px;
+                left: 10px;
+            }
+            .dots {
+    display: none;
+    margin-left: 4px;
+}
+
+.dots span {
+    display: inline-block;
+    animation: bounce 1.2s infinite;
+    font-weight: bold;
+}
+
+/* delay từng dấu chấm */
+.dots span:nth-child(1) { animation-delay: 0s; }
+.dots span:nth-child(2) { animation-delay: 0.2s; }
+.dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@@keyframes bounce {
+    0%, 80%, 100% { transform: translateY(0); opacity: 0.5; }
+    40% { transform: translateY(-6px); opacity: 1; }
+}
+            .speech-decor.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .speech-decor.show.typing {
+                animation: thinkingPulse 1.5s ease-in-out infinite;
+            }
+
+            @@keyframes thinkingPulse {
+                0%   { transform: translateY(0) scale(1); }
+                50%  { transform: translateY(-2px) scale(1.03); }
+                100% { transform: translateY(0) scale(1); }
+            }
+                /* bubble nhỏ hiện ra chậm hơn */
+                .speech-decor.show::before {
+                    animation: bubblePop 0.3s ease forwards 0.1s;
+                }
+
+                .speech-decor.show::after {
+                    animation: bubblePop 0.3s ease forwards 0.2s;
+                }
+
+        @@keyframes bubblePop {
+            from {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @@keyframes dotBounce {
+            0% {
+                transform: translateY(0);
+            }
+
+            20% {
+                transform: translateY(-3px);
+            }
+
+            40% {
+                transform: translateY(0);
+            }
+
+            60% {
+                transform: translateY(-3px);
+            }
+
+            80% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .menu-item {
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 6px;
+            cursor: pointer
+        }
+
+            .menu-item:hover {
+                background: #eef3ff
+            }
+
+        .bubble-container {
+            position: relative;
+            margin-left: 12px;
+            width: 100%;
+            display: flex;
+            align-items: center; 
+            gap: 8px;
+        }
+
+        /* input chính */
+        .post-input-bubble {
+            border-radius: 20px;
+            padding: 10px 15px;
+            border: none;
+            background: #f0f2f5;
+            transition: all 0.25s ease;
+            flex: 1;
+        }
+        .media-type i{
+            font-size: 25px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .images-type {
+            color: red;
+        }
+        .cameras-type{
+            color: cyan;
+        }
+
+            /* focus đẹp hơn */
+            .post-input-bubble:focus {
+                background: #e4ecff;
+                box-shadow: 0 0 0 2px #cfe0ff;
+            }
+
+        /* cái "đuôi" bong bóng */
+        .bubble-container::before {
+            content: "";
+            position: absolute;
+            left: -8px;
+            top: 12px;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 8px solid #f0f2f5;
+        }
+
+        /* khi focus đổi màu đuôi */
+        .post-input-bubble:focus + *,
+        .bubble-container:has(.post-input-bubble:focus)::before {
+            border-right-color: #e4ecff;
+        }
+
+        .job-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee
+        }
+
+            .job-item:last-child {
+                border: none
+            }
+
+        .right-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555
+        }
+
+        .footer {
+            font-size: 13px;
+            color: #777;
+            text-align: center;
+            margin-top: 20px
+        }
+
+        .SearchContainer {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 40px; /* nhỏ lại */
+            height: 40px;
+            border-radius: 50px;
+            background: white;
+            transition: all 0.35s ease;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+            /* icon */
+            .SearchContainer i {
+                position: absolute;
+                left: 12px;
+                font-size: 16px;
+                color: #777;
+                pointer-events: none;
+            }
+
+        /* input */
+        .search-input {
+            border: none;
+            outline: none;
+            width: 0;
+            opacity: 0;
+            padding-left: 35px;
+            transition: all 0.35s ease;
+            background: transparent;
+        }
+
+        /* hover -> expand */
+        .SearchContainer:hover {
+            width: 220px;
+            border-radius: 25px;
+        }
+
+            /* khi expand thì input hiện ra */
+            .SearchContainer:hover .search-input {
+                width: 100%;
+                opacity: 1;
+            }
+
+        .navbar .nav-link {
+            position: relative;
+            padding: 6px 12px;
+        }
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+        }
+            .navbar .nav-link::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 3px;
+                background: white;
+                transition: width 0.25s ease;
+            }
+
+            .navbar .nav-link:hover::after {
+                width: 100%;
+            }
+
+            .navbar .nav-link i {
+                font-size: 14px !important;
+            }
+
+            .navbar .nav-link span {
+                font-size: 11px;
+            }
+        .navbar .nav-item {
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            margin: 0 4px; /* tạo khoảng cách */
+        }
+
+            .navbar .nav-item:hover {
+                background: rgba(255,255,255,0.15);
+            }
+
+            .navbar .nav-item.active {
+                background: rgba(255,255,255,0.25);
+            }
+
+        .navbar .nav-link.active {
+            color: #fff !important;
+            font-weight: 600;
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 0;
+            height: 3px;
+            background: white;
+            transition: all 0.25s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar .nav-link:hover::after {
+            width: 60%;
+        }
+
+        .navbar .nav-link.active::after {
+            width: 100%;
+        }
+
+        .navbar .nav-link:not(.dropdown-toggle):hover::after {
+            width: 60%;
+        }
+
+        .navbar .nav-link.active:not(.dropdown-toggle)::after {
+            width: 100%;
+        }
+
+        @@media (max-width:991px) {
+            .sidebar-right {
+                margin-top: 20px
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar d-flex navbar-expand-lg navbar-dark">
+        <div class="container-fluid px-2 d-flex justify-content-between custom-nav">
+            <div class="rightHeaderBar">
+                <a asp-action="Index" class="logo">Aris</a>
+            </div>
+            <div class="centerHeaderBar">
+                <div class="SearchContainer ms-3">
+                    <i class="bi bi-search"></i>
+                    <input class="form-control search-input" placeholder="Search...">
+                </div>
+            </div>
+            <div class="rightHeaderBar ms-auto pe-3">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-light d-flex flex-column align-items-center">
+                            <i class="bi bi-house fs-6"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link  text-light d-flex flex-column align-items-center">
+                            <i class="bi bi-people fs-6"></i>
+                            <span>Network</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a asp-controller="Jobs" asp-action="Index" class="nav-link  text-light d-flex flex-column align-items-center">
+                            <i class="bi bi-briefcase fs-6"></i>
+                            <span>Jobs</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link  text-light d-flex flex-column align-items-center">
+                            <i class="bi bi-bell fs-6"></i>
+                            <span>Notifications</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link  text-light d-flex flex-column align-items-center">
+                            <i class="bi bi-gear fs-6"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light d-flex flex-column align-items-center"
+                           href="#"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
+
+                            <!-- Avatar -->
+                            <img src="https://i.pravatar.cc/100"
+                                 class="rounded-circle"
+                                 width="30"
+                                 height="30" />
+
+                            <span>Me</span>
+                        </a>
+
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <a class="dropdown-item" asp-controller="Profile" asp-action="Index">Profiles</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/Settings">Settings</a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <form asp-controller="Account" asp-action="Logout" method="post">
+                                    <button type="submit" class="dropdown-item text-danger">
+                                        Logout
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <div class="row g-3">
+
+            <!-- LEFT SIDEBAR -->
+            <div class="col-lg-3">
+
+                <div class="card">
+                    <div class="profile-cover"></div>
+                    <div class="card-body text-center">
+                        <a asp-controller="Profile" asp-action="Index">
+                            <img src="https://i.pravatar.cc/100" class="avatar">
+                        </a>
+                        <h6 class="mt-2 mb-0">@Model.Username</h6>
+                        <div class="text-center d-flex flex-column align-items-start ms-2">
+                            <small class="text-muted mb-1" style="color:black !important">@Model.Profile.Bio</small>
+                            <small class="text-muted mb-1" style="color:black !important">
+                                @if (Model.Profile.isStudent)
+                                {
+                                    <span>🎓 Student at @Model.Profile.Education.School</span>
+                                }
+                                else
+                                {
+                                    <span>💼 @Model.Profile.JobTitle</span>
+                                 }
+                            </small>
+                            <small class="text-muted">@Model.Profile.Location</small>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- CENTER FEED -->
+            <div class="col-lg-6">
+
+                <div class="card p-3 mb-3 d-flex align-items-start gap-2">
+                    <div class="avatar-wrapper">
+                        <img src="https://i.pravatar.cc/100" class="avatar">
+
+                        <div class="speech-decor">
+                            <span class="bubble-text">Bạn đang nghĩ gì?</span>
+                            <span class="dots">
+                                <span>.</span>
+                                <span>.</span>
+                                <span>.</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bubble-container">
+                        <input id="postInput" class="form-control post-input-bubble" placeholder="Bạn đang nghĩ gì?">
+                        <div class="media-type d-flex flex-row gap-2">
+                            <i class="images-type bi bi-card-image"></i>
+                            <i class="cameras-type bi-camera-reels-fill"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-3 mb-3">
+                    <h6>AI Recommended Jobs</h6>
+
+                    <div class="job-item d-flex justify-content-between">
+                        <div>
+                            <strong>Product Manager</strong>
+                            <div class="text-muted small">Brain Company</div>
+                        </div>
+                        <button class="btn btn-success btn-sm">Apply</button>
+                    </div>
+
+                    <div class="job-item d-flex justify-content-between">
+                        <div>
+                            <strong>Data Analyst</strong>
+                            <div class="text-muted small">Tech Corp</div>
+                        </div>
+                        <button class="btn btn-success btn-sm">Apply</button>
+                    </div>
+
+                    <div class="job-item d-flex justify-content-between">
+                        <div>
+                            <strong>AI Engineer</strong>
+                            <div class="text-muted small">Future AI Lab</div>
+                        </div>
+                        <button class="btn btn-success btn-sm">Apply</button>
+                    </div>
+
+                </div>
+
+                <div class="card p-3 mb-3">
+                    <h6>User Post</h6>
+                    <p class="text-muted">Working on a new project today. Excited to share updates soon!</p>
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-light btn-sm">👍 Like</button>
+                        <button class="btn btn-light btn-sm">💬 Comment</button>
+                        <button class="btn btn-light btn-sm">🔗 Share</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT SIDEBAR -->
+            <div class="col-lg-3 sidebar-right">
+
+                <div class="card p-3 mb-3">
+                    <div class="right-title mb-2">Suggested Connections</div>
+
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="https://i.pravatar.cc/40?img=1" class="rounded-circle me-2">
+                        <div>
+                            <div class="small fw-semibold">Jean Smith</div>
+                            <small class="text-muted">223 connections</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="https://i.pravatar.cc/40?img=2" class="rounded-circle me-2">
+                        <div>
+                            <div class="small fw-semibold">Jean Antors</div>
+                            <small class="text-muted">254 connections</small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card p-3 mb-3">
+                    <div class="right-title">Recommended Companies</div>
+
+                    <div class="d-flex justify-content-between mt-2">
+                        <span>RecruitRepair</span>
+                        <button class="btn btn-outline-primary btn-sm">Follow</button>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-2">
+                        <span>Compiler Screw</span>
+                        <button class="btn btn-outline-primary btn-sm">Follow</button>
+                    </div>
+
+                </div>
+
+                <div class="card p-3">
+                    <div class="right-title">Admin Dashboard</div>
+                    <small class="text-muted">Summary & management panel</small>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">© 2026 Aris Platform</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+               const input = document.getElementById("postInput");
+        const bubble = document.querySelector(".speech-decor");
+
+        const text = bubble.querySelector(".bubble-text");
+        const dots = bubble.querySelector(".dots");
+
+        const defaultText = "Bạn đang nghĩ gì?";
+        const typingText = "Đang lên những ý tưởng thiên tài";
+
+        input.addEventListener("focus", () => {
+            bubble.classList.add("show");
+        });
+
+        input.addEventListener("input", () => {
+            if (input.value.length > 0) {
+
+                text.textContent = typingText;
+
+                dots.style.display = "inline-block";
+
+                bubble.classList.add("typing");
+
+            } else {
+                text.textContent = defaultText;
+                dots.style.display = "none";
+                bubble.classList.remove("typing");
+            }
+        });
+
+        input.addEventListener("blur", () => {
+            if (input.value.length === 0) {
+                text.textContent = defaultText;
+                dots.style.display = "none";
+                bubble.classList.remove("show");
+            }
+        });
+    </script>
+</body>
+</html>
