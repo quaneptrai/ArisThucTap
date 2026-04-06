@@ -46,8 +46,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/ThucTap/ArisThucTap/ArisSkyve/Views/Jobs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9ic1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/ThucTap/ArisThucTap/ArisSkyve/Views/Jobs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9ic1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ThucTap/ArisThucTap/ArisSkyve/Views/Jobs/_JobCardPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9ic1xfSm9iQ2FyZFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/ThucTap/ArisThucTap/ArisSkyve/Views/Profile/Index.cshtml]

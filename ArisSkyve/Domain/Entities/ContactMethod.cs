@@ -7,10 +7,10 @@ namespace ArisSkyve.Domain.Entities
         [Key]
         public int Id { get; set; }
 
-        public string MethodType { get; set; } = string.Empty; 
+        public ContactMethodType MethodType { get; set; }
         public string Value { get; set; } = string.Empty;
 
-        public int ResumeId { get; set; }
-        public Resume Resume { get; set; }
+        public int  idEmployesAccount { get; set; }
+        public EmployesAccount EmployesAccount { get; set; }
     }
 }

@@ -62,6 +62,7 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\uploads\avatars\Arisu.png
 D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\lib\jquery\dist\jquery.slim.min.map
 D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\lib\jquery\dist\jquery.slim.min.js
 D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\lib\jquery\dist\jquery.slim.js

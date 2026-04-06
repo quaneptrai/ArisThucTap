@@ -14,24 +14,31 @@ namespace ArisSkyve.Domain.Entities
 
         [MaxLength(300)]
         public string Company { get; set; } = string.Empty;
+        public string Responsibilities { get; set; } = "[]";
+        public string Requirements { get; set; } = "[]";
+        public string Benefits { get; set; } = "[]";
 
-        // JSON fields
-        public string Locations { get; set; } = "[]"; // store JSON array
-        public string Responsibilities { get; set; } = "[]"; // JSON array
-        public string Requirements { get; set; } = "[]"; // JSON array
-        public string Benefits { get; set; } = "[]"; // JSON array
-        public string? Tags { get; set; } = "{}"; // JSON object { "Yêu cầu":[], "Quyền lợi":[], "Chuyên môn":[] }
+        [MaxLength(500)]
+        public string? WorkTime { get; set; } = string.Empty;
 
-        [MaxLength(200)]
-        public string WorkTime { get; set; } = string.Empty;
+        [MaxLength(100)]
+        public string Salary { get; set; } = string.Empty;
+
+        [MaxLength(100)]
+        public string Experience { get; set; } = string.Empty;
+
+        public DateTime? Deadline { get; set; }
+
+        public string LocationTags { get; set; } = "[]";
 
         public string FullText { get; set; } = string.Empty;
+        public string OriginalUrl { get; set; } = string.Empty;
 
+        public string? FullTextEmbedding { get; set; }
+        public bool isActive { get; set; } = true; 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
-
-        // optional: store vector for hybrid search
-        public string? FullTextEmbedding { get; set; }
+        public ICollection<JobLocation> Locations { get; set; } = new List<JobLocation>();
         public int? BusinessAccountId { get; set; }
         public BussinessAccount? BusinessAccount { get; set; }
     }

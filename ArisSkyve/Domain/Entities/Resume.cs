@@ -9,8 +9,6 @@ namespace ArisSkyve.Domain.Entities
 
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
-
-        public List<ContactMethod> ContactMethods { get; set; } = new List<ContactMethod>();
         public List<Skills> Skills { get; set; } = new List<Skills>();
         public List<Experiences> Experiences { get; set; } = new List<Experiences>();
         public List<Education> Educations { get; set; } = new List<Education>();

@@ -22,6 +22,41 @@ namespace ArisSkyve.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("ArisSkyve.Domain.Entities.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ParentCommentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentCommentId");
+
+                    b.HasIndex("PostId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("ArisSkyve.Domain.Entities.ContactMethod", b =>
                 {
                     b.Property<int>("Id")
@@ -30,20 +65,19 @@ namespace ArisSkyve.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("MethodType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ResumeId")
+                    b.Property<int>("MethodType")
                         .HasColumnType("int");
 
                     b.Property<string>("Value")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("idEmployesAccount")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ResumeId");
+                    b.HasIndex("idEmployesAccount");
 
                     b.ToTable("ContactMethods");
                 });
@@ -94,7 +128,13 @@ namespace ArisSkyve.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("AvatarUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Bio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CoverPhotoUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Discriminator")
@@ -117,9 +157,6 @@ namespace ArisSkyve.Migrations
 
                     b.Property<string>("Location")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ResumeUrl")
@@ -176,6 +213,36 @@ namespace ArisSkyve.Migrations
                     b.ToTable("Experiences");
                 });
 
+            modelBuilder.Entity("ArisSkyve.Domain.Entities.JobLocation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("JobPostingId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("City");
+
+                    b.HasIndex("JobPostingId");
+
+                    b.ToTable("JobLocations");
+                });
+
             modelBuilder.Entity("ArisSkyve.Domain.Entities.JobPosting", b =>
                 {
                     b.Property<int>("Id")
@@ -199,6 +266,14 @@ namespace ArisSkyve.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("Deadline")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Experience")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<string>("FullText")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -206,7 +281,11 @@ namespace ArisSkyve.Migrations
                     b.Property<string>("FullTextEmbedding")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Locations")
+                    b.Property<string>("LocationTags")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OriginalUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -218,8 +297,10 @@ namespace ArisSkyve.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Tags")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Salary")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -230,15 +311,35 @@ namespace ArisSkyve.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("WorkTime")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<bool>("isActive")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BusinessAccountId");
 
                     b.ToTable("JobPostings");
+                });
+
+            modelBuilder.Entity("ArisSkyve.Domain.Entities.Like", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("UserId", "PostId");
+
+                    b.HasIndex("PostId");
+
+                    b.ToTable("Likes");
                 });
 
             modelBuilder.Entity("ArisSkyve.Domain.Entities.Post", b =>
@@ -249,12 +350,21 @@ namespace ArisSkyve.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("CommentCount")
+                        .HasColumnType("int");
+
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsPublic")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("LikeCount")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -399,11 +509,11 @@ namespace ArisSkyve.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Username")
+                    b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("role")
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -462,15 +572,40 @@ namespace ArisSkyve.Migrations
                     b.HasDiscriminator().HasValue("BussinessAccount");
                 });
 
-            modelBuilder.Entity("ArisSkyve.Domain.Entities.ContactMethod", b =>
+            modelBuilder.Entity("ArisSkyve.Domain.Entities.Comment", b =>
                 {
-                    b.HasOne("ArisSkyve.Domain.Entities.Resume", "Resume")
-                        .WithMany("ContactMethods")
-                        .HasForeignKey("ResumeId")
+                    b.HasOne("ArisSkyve.Domain.Entities.Comment", "ParentComment")
+                        .WithMany("Replies")
+                        .HasForeignKey("ParentCommentId");
+
+                    b.HasOne("ArisSkyve.Domain.Entities.Post", "Post")
+                        .WithMany("Comments")
+                        .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Resume");
+                    b.HasOne("ArisSkyve.Domain.Entities.User", "User")
+                        .WithMany("Comments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ParentComment");
+
+                    b.Navigation("Post");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ArisSkyve.Domain.Entities.ContactMethod", b =>
+                {
+                    b.HasOne("ArisSkyve.Domain.Entities.EmployesAccount", "EmployesAccount")
+                        .WithMany("ContactMethods")
+                        .HasForeignKey("idEmployesAccount")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("EmployesAccount");
                 });
 
             modelBuilder.Entity("ArisSkyve.Domain.Entities.Education", b =>
@@ -514,6 +649,17 @@ namespace ArisSkyve.Migrations
                     b.Navigation("Resume");
                 });
 
+            modelBuilder.Entity("ArisSkyve.Domain.Entities.JobLocation", b =>
+                {
+                    b.HasOne("ArisSkyve.Domain.Entities.JobPosting", "JobPosting")
+                        .WithMany("Locations")
+                        .HasForeignKey("JobPostingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("JobPosting");
+                });
+
             modelBuilder.Entity("ArisSkyve.Domain.Entities.JobPosting", b =>
                 {
                     b.HasOne("ArisSkyve.Domain.Entities.BussinessAccount", "BusinessAccount")
@@ -522,6 +668,25 @@ namespace ArisSkyve.Migrations
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("BusinessAccount");
+                });
+
+            modelBuilder.Entity("ArisSkyve.Domain.Entities.Like", b =>
+                {
+                    b.HasOne("ArisSkyve.Domain.Entities.Post", "Post")
+                        .WithMany("Likes")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("ArisSkyve.Domain.Entities.User", "User")
+                        .WithMany("Likes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Post");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ArisSkyve.Domain.Entities.Post", b =>
@@ -587,20 +752,34 @@ namespace ArisSkyve.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ArisSkyve.Domain.Entities.Comment", b =>
+                {
+                    b.Navigation("Replies");
+                });
+
             modelBuilder.Entity("ArisSkyve.Domain.Entities.EmployesAccount", b =>
                 {
+                    b.Navigation("ContactMethods");
+
                     b.Navigation("Education");
+                });
+
+            modelBuilder.Entity("ArisSkyve.Domain.Entities.JobPosting", b =>
+                {
+                    b.Navigation("Locations");
                 });
 
             modelBuilder.Entity("ArisSkyve.Domain.Entities.Post", b =>
                 {
+                    b.Navigation("Comments");
+
+                    b.Navigation("Likes");
+
                     b.Navigation("PostMedias");
                 });
 
             modelBuilder.Entity("ArisSkyve.Domain.Entities.Resume", b =>
                 {
-                    b.Navigation("ContactMethods");
-
                     b.Navigation("Educations");
 
                     b.Navigation("Experiences");
@@ -610,6 +789,10 @@ namespace ArisSkyve.Migrations
 
             modelBuilder.Entity("ArisSkyve.Domain.Entities.User", b =>
                 {
+                    b.Navigation("Comments");
+
+                    b.Navigation("Likes");
+
                     b.Navigation("Posts");
 
                     b.Navigation("Profile");

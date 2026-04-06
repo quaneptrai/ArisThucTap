@@ -1,0 +1,33 @@
+﻿@model List<ArisSkyve.Domain.Entities.JobPosting>
+
+@foreach (var job in Model)
+{
+    <div class="card mb-3 shadow-sm border-0 rounded-4 job-card">
+        <div class="card-body d-flex">
+            <img src="https://i.pravatar.cc/60?img=@(new Random().Next(1, 70))"
+                 class="rounded me-3"
+                 width="60"
+                 height="60" />
+            <div class="flex-grow-1">
+                <h6 class="fw-bold mb-1">
+                    <a class="text-decoration-none" asp-controller="Jobs" asp-action="Details" asp-route-id="@job.Id">
+                        @job.Title
+                    </a>
+                </h6>
+                <small class="text-muted">@job.Company</small>
+                <div class="mt-2 d-flex gap-2 flex-wrap">
+                    <span class="badge bg-light text-dark border">@job.Salary</span>
+                    @foreach (var loc in job.Locations)
+                    {
+                        <span class="badge bg-light text-dark border">@loc.City</span>
+                    }
+                </div>
+            </div>
+            <div class="ms-2 d-flex align-items-start">
+                <button class="btn btn-light border rounded-circle">
+                    <i class="bi bi-heart"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+}

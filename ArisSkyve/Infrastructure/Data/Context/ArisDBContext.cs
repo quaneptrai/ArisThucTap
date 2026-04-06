@@ -18,7 +18,9 @@ namespace ArisSkyve.Infrastructure.Data.Context
         public DbSet<Skills> Skills { get; set; }
         public DbSet<Experiences> Experiences { get; set; }
         public DbSet<ContactMethod> ContactMethods { get; set; }
-
+        public DbSet<JobLocation> JobLocations { get; set; }
+        public DbSet<Like> Likes { get; set; }
+        public DbSet<Comment> Comments { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -30,30 +32,69 @@ namespace ArisSkyve.Infrastructure.Data.Context
                 .HasForeignKey(j => j.BusinessAccountId)
                 .OnDelete(DeleteBehavior.SetNull);
 
-            // JSON fields
-            modelBuilder.Entity<JobPosting>()
-                .Property(j => j.Locations)
-                .HasColumnType("nvarchar(max)");
-
+            // JSON string fields
             modelBuilder.Entity<JobPosting>()
                 .Property(j => j.Responsibilities)
                 .HasColumnType("nvarchar(max)");
-
             modelBuilder.Entity<JobPosting>()
                 .Property(j => j.Requirements)
                 .HasColumnType("nvarchar(max)");
-
             modelBuilder.Entity<JobPosting>()
                 .Property(j => j.Benefits)
                 .HasColumnType("nvarchar(max)");
-
-            modelBuilder.Entity<JobPosting>()
-                .Property(j => j.Tags)
-                .HasColumnType("nvarchar(max)");
-
             modelBuilder.Entity<JobPosting>()
                 .Property(j => j.FullText)
                 .HasColumnType("nvarchar(max)");
+            modelBuilder.Entity<JobPosting>()
+                .Property(j => j.LocationTags)
+                .HasColumnType("nvarchar(max)"); 
+            modelBuilder.Entity<JobLocation>()
+                .HasOne(jl => jl.JobPosting)
+                .WithMany(j => j.Locations)
+                .HasForeignKey(jl => jl.JobPostingId)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<JobLocation>()
+                .HasIndex(jl => jl.City);
+
+
+            modelBuilder.Entity<ContactMethod>()
+                .HasOne(c => c.EmployesAccount)
+                .WithMany(p => p.ContactMethods)
+                .HasForeignKey(c => c.idEmployesAccount)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Discriminator cho Profiles
+            modelBuilder.Entity<EmployesAccount>()
+                .HasDiscriminator<string>("Discriminator")
+                .HasValue<EmployesAccount>("EmployesAccount")
+                .HasValue<BussinessAccount>("BussinessAccount");
+
+            modelBuilder.Entity<Like>()
+                .HasKey(l => new { l.UserId, l.PostId });
+
+            // ✅ Like → Post (N:1)
+            modelBuilder.Entity<Like>()
+                .HasOne(l => l.Post)
+                .WithMany(p => p.Likes)
+                .HasForeignKey(l => l.PostId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // ✅ Like → User (N:1)
+            modelBuilder.Entity<Like>()
+                .HasOne(l => l.User)
+                .WithMany(u => u.Likes)
+                .HasForeignKey(l => l.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // User <-> Profile
+            modelBuilder.Entity<User>()
+                    .HasOne(u => u.Profile)
+                    .WithOne(p => p.User)
+                    .HasForeignKey<EmployesAccount>(p => p.UserId)
+                    .OnDelete(DeleteBehavior.Cascade);
+                //Like constraint 
+                modelBuilder.Entity<Like>()
+                    .HasKey(l => new { l.UserId, l.PostId });
         }
     }
 }

@@ -1,124 +1,532 @@
-﻿@{
+﻿@model ArisSkyve.Domain.Entities.User
+@{
     Layout = null;
+    var profile = Model.Profile;
+
+    var fullName = !string.IsNullOrEmpty(profile?.FullName) ? profile.FullName : Model.Username;
+    var avatar = !string.IsNullOrEmpty(profile?.AvatarUrl) ? profile.AvatarUrl : "/images/default-avatar.png";
+    var cover = !string.IsNullOrEmpty(profile?.CoverPhotoUrl) ? profile.CoverPhotoUrl : "https://images.unsplash.com/photo-1579546929518-9e396f3cc809";
+    var bio = profile?.Bio ?? "Chưa có tiểu sử.";
+    var location = profile?.Location ?? "Vị trí chưa xác định";
+    var jobTitle = profile?.JobTitle ?? "Thành viên Aris Skyve";
 }
+
 <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Profile</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | @fullName</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <style>
-        .cover {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(to bottom, #ccc, #999);
-            border-radius: 10px;
-            position: relative;
+        :root {
+            --aris-primary: #6366f1;
+            --aris-primary-soft: #eef2ff;
+            --aris-bg: #f8fafc;
+            --aris-card: #ffffff;
+            --aris-text-main: #0f172a;
+            --aris-text-sub: #64748b;
+            --aris-border: #f1f5f9;
+            --radius-xl: 24px;
+            --radius-lg: 16px;
         }
 
-        .toolstab {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
+        body {
+            background-color: var(--aris-bg);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--aris-text-main);
+            padding-bottom: 50px;
         }
 
         .navbar {
-            background: linear-gradient(90deg,#1e88e5,#42a5f5)
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--aris-border);
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-            .navbar .nav-link {
-                position: relative;
-                padding-bottom: 8px;
-            }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--aris-primary) !important;
+        }
 
-                .navbar .nav-link::after {
-                    content: "";
-                    position: absolute;
-                    left: 0;
-                    bottom: 0;
-                    width: 0;
-                    height: 3px;
-                    background: white;
-                    transition: width 0.25s ease;
-                }
+        .card-aris {
+            background: var(--aris-card);
+            border: 1px solid var(--aris-border);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
 
-                .navbar .nav-link:hover::after {
-                    width: 100%;
-                }
-        .logo{
-            text-decoration: none;
-            font-size: 24px;
+        .profile-cover {
+            height: 140px;
+            background-image: url('@cover');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .profile-avatar-container {
+            margin-top: -60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .avatar-main {
+            width: 110px;
+            height: 110px;
+            border-radius: 32px;
+            border: 6px solid #fff;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary-aris {
+            background: var(--aris-primary);
             color: white;
+            border: none;
+            border-radius: 14px;
+            padding: 10px 24px;
+            font-weight: 600;
+            transition: 0.3s;
         }
 
-        .profileInfor{
-            margin-left: 50px;
-        }
-        .profileInfor .avatar {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 3px solid #fff;
+            .btn-primary-aris:hover {
+                background: #4f46e5;
+                transform: scale(1.02);
             }
-    </style> 
-    </head>
-    <body class="bg-light">
-    <nav class="navbar d-flex navbar-expand-lg navbar-dark">
-        <div class="container-fluid d-flex justify-content-between">
-            <div class="rightHeaderBar">
-                <a asp-controller="Dashboard" asp-action="Index" class="logo">Aris</a>
-            </div>
-            <div class="rightHeaderBar ms-auto pe-3">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-light d-flex flex-column align-items-center">
-                            <i class="bi bi-house fs-6"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link text-light d-flex flex-column align-items-center">
-                            <i class="bi bi-people fs-6"></i>
-                            <span>Network</span>
-                        </a>
-                    </li>
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 12px;
+            transition: 0.2s;
+            color: var(--aris-text-sub);
+            text-decoration: none;
+            border: 1px solid transparent;
+        }
 
-                    <li class="nav-item">
-                        <a class="nav-link text-light d-flex flex-column align-items-center">
-                            <i class="bi bi-briefcase fs-6"></i>
-                            <span>Jobs</span>
-                        </a>
-                    </li>
+            .contact-item:hover {
+                background: var(--aris-primary-soft);
+                color: var(--aris-primary);
+                border-color: #c7d2fe;
+            }
 
-                    <li class="nav-item">
-                        <a class="nav-link text-light d-flex flex-column align-items-center">
-                            <i class="bi bi-bell fs-6"></i>
-                            <span>Notifications</span>
-                        </a>
-                    </li>
+        /* Widget Styles */
+        .widget-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
 
-                    <li class="nav-item">
-                        <a class="nav-link text-light d-flex flex-column align-items-center">
-                            <i class="bi bi-gear fs-6"></i>
-                            <span>Settings</span>
-                        </a>
-                    </li>
-                </ul>
+        .widget-icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--aris-primary-soft);
+            color: var(--aris-primary);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .skill-badge {
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 0.75rem;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* Typing Animation */
+        .typing-effect {
+            display: inline-block;
+            position: relative;
+        }
+
+        .typing-cursor::after {
+            content: '|';
+            position: absolute;
+            right: -8px;
+            animation: blink 0.8s step-end infinite;
+            color: var(--aris-primary);
+            font-weight: bold;
+        }
+
+        @@keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Modal */
+        .modal-content {
+            border-radius: var(--radius-xl);
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+
+        .form-control-aris {
+            background: var(--aris-bg);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+            .form-control-aris:focus {
+                background: #fff;
+                border-color: var(--aris-primary);
+                box-shadow: 0 0 0 4px var(--aris-primary-soft);
+            }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/">Aris.</a>
+            <div class="d-flex align-items-center gap-3 ms-auto">
+                <a href="#" class="text-muted"><i class="bi bi-chat-left-text fs-5"></i></a>
+                <a href="#" class="text-muted"><i class="bi bi-bell fs-5"></i></a>
+                <div class="dropdown ms-2">
+                    <img src="@avatar" class="rounded-circle cursor-pointer" width="38" height="38" data-bs-toggle="dropdown" style="object-fit: cover;">
+                </div>
             </div>
         </div>
     </nav>
-        <div class="container mt-2">
-            <div class="cover">
-                <div class="toolstab">
-                    <button class="btn btn-light">
-                    <i class="bi bi-camera-fill"></i> Add cover photo
-                    </button>
+
+    <div class="container mt-4">
+        <div class="row g-4">
+
+            <div class="col-lg-3">
+                <div class="card-aris mb-4">
+                    <div class="profile-cover"></div>
+                    <div class="px-4 pb-4 text-center">
+                        <div class="profile-avatar-container">
+                            <img src="@avatar" class="avatar-main">
+                        </div>
+                        <h5 class="fw-bold mt-3 mb-1">@fullName</h5>
+                        <p class="text-muted small mb-3">@@@Model.Username • @jobTitle</p>
+
+                        <div class="row g-2 mt-2">
+                            <div class="col-6">
+                                <div class="bg-light rounded-3 p-2 text-center">
+                                    <div class="fw-bold">@Model.Posts.Count</div>
+                                    <div class="small text-muted" style="font-size:0.7rem;">Bài viết</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="bg-light rounded-3 p-2 text-center">
+                                    <div class="fw-bold">@Model.Likes.Count</div>
+                                    <div class="small text-muted" style="font-size:0.7rem;">Lượt thích</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4 opacity-50">
+
+                        <div class="text-start mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <label class="small text-uppercase fw-bold text-muted" style="letter-spacing: 1px;">Tiểu sử</label>
+                                <button class="btn btn-sm text-primary p-0 m-0" id="btnEditBio" title="Chỉnh sửa tiểu sử"><i class="bi bi-pencil-square"></i></button>
+                            </div>
+
+                            <div id="bioDisplayMode">
+                                <p id="bioText" class="small text-secondary mb-0">@bio</p>
+                            </div>
+
+                            <div id="bioEditMode" class="d-none mt-2">
+                                <textarea id="bioInput" class="form-control form-control-aris form-control-sm mb-2" rows="3">@bio</textarea>
+                                <div class="d-flex justify-content-end gap-2">
+                                    <button id="btnCancelBio" class="btn btn-sm btn-light rounded-pill px-3 fw-bold">Hủy</button>
+                                    <button id="btnSaveBio" class="btn btn-sm btn-primary-aris rounded-pill px-3">
+                                        <span id="saveBioSpinner" class="spinner-border spinner-border-sm d-none"></span> Lưu
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-start">
+                            <div class="mb-3">
+                                <label class="small text-uppercase fw-bold text-muted d-block mb-1">Vị trí</label>
+                                <span class="small"><i class="bi bi-geo-alt-fill me-2 text-primary"></i>@location</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-aris p-4 mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="fw-bold mb-0">Liên hệ</h6>
+                        <button class="btn btn-sm btn-light text-primary rounded-circle" data-bs-toggle="modal" data-bs-target="#addContactModal">
+                            <i class="bi bi-plus-lg fw-bold"></i>
+                        </button>
+                    </div>
+
+                    <div class="contact-list">
+                        @if (profile?.ContactMethods != null && profile.ContactMethods.Any())
+                        {
+                            foreach (var method in profile.ContactMethods)
+                            {
+                                <a href="#" class="contact-item mb-1">
+                                    <i class="bi bi-link-45deg fs-5 me-2"></i>
+                                    <div class="text-truncate">
+                                        <div class="small fw-bold text-dark">@method.MethodType</div>
+                                        <div style="font-size: 0.75rem;">@method.Value</div>
+                                    </div>
+                                </a>
+                            }
+                        }
+                        else
+                        {
+                            <p class="small text-muted mb-0 text-center py-2 italic">Chưa có thông tin liên hệ.</p>
+                        }
+                    </div>
+                </div>
+
+                <div class="card-aris p-4">
+                    <h6 class="fw-bold mb-3">Kỹ năng nổi bật</h6>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="skill-badge">C# / .NET Core</span>
+                        <span class="skill-badge">SQL Server</span>
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">UI/UX Design</span>
+                        <span class="skill-badge">+3 nữa</span>
+                    </div>
                 </div>
             </div>
-        <div class="profileInfor">
-            <img src="https://i.pravatar.cc/300" class="avatar">
+
+            <div class="col-lg-6">
+                <div class="card-aris p-4 mb-4">
+                    <div class="d-flex gap-3">
+                        <img src="@avatar" class="rounded-circle" width="50" height="50" style="object-fit: cover;">
+                        <div class="form-control form-control-aris flex-grow-1 text-muted fw-medium d-flex align-items-center" style="cursor: text; min-height: 50px;" data-bs-toggle="modal" data-bs-target="#createPostModal">
+                            Bạn đang nghĩ gì, @(profile?.FullName.Split(' ')[0] ?? Model.Username)?
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-3 pt-3 border-top">
+                        <div class="d-flex gap-4">
+                            <button class="btn btn-link text-decoration-none text-muted p-0 small fw-bold"><i class="bi bi-image text-success me-2"></i>Ảnh</button>
+                            <button class="btn btn-link text-decoration-none text-muted p-0 small fw-bold"><i class="bi bi-camera-video text-primary me-2"></i>Video</button>
+                            <button class="btn btn-link text-decoration-none text-muted p-0 small fw-bold"><i class="bi bi-file-earmark-text text-warning me-2"></i>Bài viết</button>
+                        </div>
+                        <button class="btn btn-primary-aris py-1 px-4 small">Đăng</button>
+                    </div>
+                </div>
+
+                @if (Model.Posts != null && Model.Posts.Any())
+                {
+                    foreach (var post in Model.Posts.OrderByDescending(p => p.Id))
+                    {
+                        <div class="card-aris p-4 mb-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="@avatar" class="rounded-circle me-3" width="45">
+                                <div>
+                                    <h6 class="mb-0 fw-bold">@fullName</h6>
+                                    <small class="text-muted">@post.CreatedAt.ToString("g") • <i class="bi bi-globe-americas"></i></small>
+                                </div>
+                            </div>
+                            <p>@post.Content</p>
+                            <div class="d-flex gap-4 pt-2 border-top mt-3">
+                                <span class="small text-muted cursor-pointer"><i class="bi bi-heart me-1"></i> Thích</span>
+                                <span class="small text-muted cursor-pointer"><i class="bi bi-chat-left me-1"></i> Bình luận</span>
+                                <span class="small text-muted cursor-pointer ms-auto"><i class="bi bi-share"></i> Chia sẻ</span>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="card-aris p-5 text-center">
+                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <i class="bi bi-card-text fs-1 text-primary opacity-50"></i>
+                        </div>
+                        <h6 class="fw-bold">Chưa có bài viết nào</h6>
+                        <p class="text-muted small mb-0">Khi @fullName đăng bài, chúng sẽ xuất hiện ở đây.</p>
+                    </div>
+                }
+            </div>
+
+            <div class="col-lg-3">
+
+                <div class="card-aris p-4 mb-4">
+                    <h6 class="fw-bold mb-3">Trạng thái làm việc</h6>
+                    <div class="d-flex justify-content-between align-items-center p-2 rounded-3 bg-light mb-2">
+                        <span class="small fw-medium">Làm việc từ xa</span>
+                        <div class="form-check form-switch m-0">
+                            <input class="form-check-input" type="checkbox" @(profile?.IsRemoteJob == true ? "checked" : "") disabled>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center p-2 rounded-3 bg-light">
+                        <span class="small fw-medium">Tìm việc làm mới</span>
+                        <div class="form-check form-switch m-0">
+                            <input class="form-check-input" type="checkbox" @(profile?.IsLookingForJob == true ? "checked" : "") disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-aris p-4 mb-4">
+                    <h6 class="fw-bold mb-3">Thống kê hồ sơ</h6>
+                    <div class="d-flex align-items-center gap-3 mb-2">
+                        <h2 class="fw-bolder mb-0" style="color: var(--aris-primary);">124</h2>
+                        <span class="small text-success bg-success bg-opacity-10 px-2 py-1 rounded"><i class="bi bi-arrow-up-right"></i> 12%</span>
+                    </div>
+                    <div class="small text-muted mb-3">Lượt xem hồ sơ trong 7 ngày qua.</div>
+                    <a href="#" class="small fw-bold text-decoration-none">Xem chi tiết báo cáo</a>
+                </div>
+
+                <div class="card-aris p-4 mb-4">
+                    <h6 class="fw-bold mb-4">Việc làm gợi ý</h6>
+
+                    <div class="widget-item">
+                        <div class="widget-icon-box bg-danger bg-opacity-10 text-danger"><i class="bi bi-google"></i></div>
+                        <div class="text-truncate">
+                            <div class="small fw-bold text-dark">Senior Software Engineer</div>
+                            <div style="font-size: 0.75rem;" class="text-muted">Google • Remote</div>
+                        </div>
+                    </div>
+
+                    <div class="widget-item">
+                        <div class="widget-icon-box bg-primary bg-opacity-10 text-primary"><i class="bi bi-microsoft"></i></div>
+                        <div class="text-truncate">
+                            <div class="small fw-bold text-dark">.NET Backend Developer</div>
+                            <div style="font-size: 0.75rem;" class="text-muted">Microsoft • Hybrid</div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="small fw-bold text-decoration-none mt-2 d-inline-block">Xem tất cả (8) việc làm</a>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="modal fade" id="addContactModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form asp-controller="Profile" asp-action="AddContact" method="post">
+                    <div class="modal-header border-0 pb-0 mt-2 px-4">
+                        <h5 class="modal-title fw-bold">Thêm phương thức liên hệ</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body px-4 py-4">
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-muted">Loại liên hệ (Nền tảng)</label>
+                            <select name="MethodType" class="form-control form-control-aris" required>
+                                <option value="" disabled selected>Chọn nền tảng...</option>
+                                <option value="Số điện thoại">Số điện thoại</option>
+                                <option value="Email">Email</option>
+                                <option value="LinkedIn">LinkedIn</option>
+                                <option value="GitHub">GitHub</option>
+                            </select>
+                        </div>
+                        <div class="mb-1">
+                            <label class="form-label small fw-bold text-muted">Đường dẫn / Giá trị</label>
+                            <input type="text" name="Value" class="form-control form-control-aris" placeholder="VD: linkedin.com/in/arisskyve" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0 pt-0 px-4 mb-2">
+                        <button type="button" class="btn btn-light rounded-pill px-4 fw-bold" data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-primary-aris rounded-pill px-4">Thêm liên hệ</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </body>
-    </html>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const bioText = document.getElementById("bioText");
+            const btnEditBio = document.getElementById("btnEditBio");
+            const bioDisplayMode = document.getElementById("bioDisplayMode");
+            const bioEditMode = document.getElementById("bioEditMode");
+            const bioInput = document.getElementById("bioInput");
+            const btnCancelBio = document.getElementById("btnCancelBio");
+            const btnSaveBio = document.getElementById("btnSaveBio");
+            const spinner = document.getElementById("saveBioSpinner");
+
+            let currentBio = bioText.innerText;
+
+            btnEditBio.addEventListener("click", () => {
+                bioDisplayMode.classList.add("d-none");
+                bioEditMode.classList.remove("d-none");
+                bioInput.focus();
+            });
+
+            btnCancelBio.addEventListener("click", () => {
+                bioInput.value = currentBio;
+                bioEditMode.classList.add("d-none");
+                bioDisplayMode.classList.remove("d-none");
+            });
+
+            function typeWriterEffect(element, text, speed = 30) {
+                element.innerHTML = "";
+                element.classList.add("typing-cursor", "typing-effect");
+
+                let i = 0;
+                function type() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(type, speed);
+                    } else {
+                        setTimeout(() => element.classList.remove("typing-cursor"), 1000);
+                    }
+                }
+                type();
+            }
+
+            btnSaveBio.addEventListener("click", async () => {
+                const newBio = bioInput.value.trim();
+
+                if(newBio === currentBio) {
+                    btnCancelBio.click();
+                    return;
+                }
+
+                btnSaveBio.disabled = true;
+                spinner.classList.remove("d-none");
+
+                try {
+                    const response = await fetch('/Profile/UpdateBio', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ Bio: newBio })
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        if (result.success) {
+                            currentBio = newBio;
+                            bioEditMode.classList.add("d-none");
+                            bioDisplayMode.classList.remove("d-none");
+                            typeWriterEffect(bioText, currentBio);
+                        }
+                    } else {
+                        alert("Có lỗi xảy ra khi lưu tiểu sử. Vui lòng thử lại!");
+                    }
+                } catch (error) {
+                    console.error("Lỗi:", error);
+                    alert("Lỗi kết nối máy chủ!");
+                } finally {
+                    btnSaveBio.disabled = false;
+                    spinner.classList.add("d-none");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
