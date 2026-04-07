@@ -17,6 +17,7 @@
 
         public ICollection<Comment> Replies { get; set; } = new List<Comment>();
 
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime? UpdatedAt { get; set; }
     }
 }

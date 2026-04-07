@@ -1,33 +1,110 @@
-﻿@model List<ArisSkyve.Domain.Entities.JobPosting>
+﻿@model IEnumerable<ArisSkyve.Domain.Entities.JobPosting>
 
 @foreach (var job in Model)
 {
-    <div class="card mb-3 shadow-sm border-0 rounded-4 job-card">
-        <div class="card-body d-flex">
-            <img src="https://i.pravatar.cc/60?img=@(new Random().Next(1, 70))"
-                 class="rounded me-3"
-                 width="60"
-                 height="60" />
-            <div class="flex-grow-1">
-                <h6 class="fw-bold mb-1">
-                    <a class="text-decoration-none" asp-controller="Jobs" asp-action="Details" asp-route-id="@job.Id">
-                        @job.Title
-                    </a>
-                </h6>
-                <small class="text-muted">@job.Company</small>
-                <div class="mt-2 d-flex gap-2 flex-wrap">
-                    <span class="badge bg-light text-dark border">@job.Salary</span>
-                    @foreach (var loc in job.Locations)
-                    {
-                        <span class="badge bg-light text-dark border">@loc.City</span>
-                    }
-                </div>
+    <div class="card job-card p-3 mb-3 border-0 shadow-sm">
+        <div class="bookmark-btn">
+            <i class="bi bi-bookmark text-muted"></i>
+        </div>
+
+        <div class="d-flex gap-3">
+            <div class="company-logo-wrapper border bg-light flex-shrink-0">
+                <img src="https://ui-avatars.com/api/?name=@(job.Title)&background=random&color=fff"
+                     alt="Logo" class="img-fluid p-2 rounded-3">
             </div>
-            <div class="ms-2 d-flex align-items-start">
-                <button class="btn btn-light border rounded-circle">
-                    <i class="bi bi-heart"></i>
-                </button>
+
+            <div class="flex-grow-1">
+                <a asp-controller="Jobs" asp-action="Details" asp-route-id="@job.Id" class="text-decoration-none">
+                    <h6 class="fw-bold mb-1 text-dark job-title-link">@job.Title</h6>
+                </a>
+
+                <p class="mb-2 small fw-medium text-primary">
+                    ID Doanh nghiệp: #@job.BusinessAccountId
+                </p>
+
+                <div class="d-flex flex-wrap gap-3 mb-3">
+                    <span class="job-meta-item small text-muted">
+                        <i class="bi bi-geo-alt me-1"></i>
+                        @* Hiển thị location đầu tiên từ danh sách *@
+                        @(job.Locations?.FirstOrDefault()?.Address ?? "Toàn quốc")
+                    </span>
+                    <span class="job-meta-item small text-muted">
+                        <i class="bi bi-clock me-1"></i>
+                        @job.UpdatedAt.ToString("dd/MM/yyyy")
+                    </span>
+                    <span class="job-meta-item text-primary small">
+                        <i class="bi bi-people me-1"></i>
+                        @* Số lượng ứng tuyển (để tạm 0 nếu chưa có field trong DB) *@
+                        0 người ứng tuyển
+                    </span>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <span class="salary-tag">
+                        @if (!string.IsNullOrEmpty(job.Salary))
+                        {
+                            @* Nếu là string, cứ hiển thị trực tiếp *@
+                            @job.Salary
+                        }
+                        else
+                        {
+                            <span class="text-muted small">Thỏa thuận</span>
+                        }
+                    </span>
+
+                    <div class="d-flex gap-2">
+                        <a asp-controller="Jobs" asp-action="Details" asp-route-id="@job.Id"
+                           class="btn btn-outline-primary btn-sm rounded-pill px-4 fw-bold">
+                            Chi tiết
+                        </a>
+                        <button class="btn btn-primary btn-sm rounded-pill px-4 fw-bold">
+                            Ứng tuyển
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 }
+
+<style>
+    /* Hiệu ứng hover cho Title */
+    .job-title-link {
+        transition: color 0.2s ease;
+    }
+
+        .job-title-link:hover {
+            color: #2563eb !important;
+            text-decoration: underline;
+        }
+
+    /* Style cho tag lương */
+    .salary-tag {
+        font-weight: 700;
+        color: #059669; /* Xanh lá hiện đại */
+        background: #ecfdf5;
+        padding: 6px 14px;
+        border-radius: 10px;
+        font-size: 14px;
+        display: inline-block;
+    }
+
+    /* Style cho box logo */
+    .company-logo-wrapper {
+        width: 64px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .job-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .job-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06) !important;
+        }
+</style>

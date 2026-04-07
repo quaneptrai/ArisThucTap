@@ -2,115 +2,79 @@
 
 @{
     Layout = null;
-    var rand = new Random();
+    var profile = Model.Profile;
 }
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aris Jobs | Find Your Career</title>
+    <title>Aris Jobs | Discover Opportunities</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
     <style>
+        :root {
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --card-radius: 16px;
+            --nav-height: 68px;
+        }
+
         body {
-            background: #f0f2f5;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            padding-top: calc(var(--nav-height) + 20px);
         }
 
-        /* --- GIỮ NGUYÊN HEADER STYLE CỦA BẠN --- */
+        /* --- NAVBAR --- */
         .navbar {
-            min-height: 45px;
-            padding-top: 4px;
-            padding-bottom: 4px;
-            background: linear-gradient(90deg,#1e88e5,#42a5f5)
-        }
-
-            .navbar .nav-link {
-                position: relative;
-                padding: 6px 12px;
-            }
-
-        .navbar-nav {
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar .nav-link i {
-            font-size: 14px !important;
-        }
-
-        .navbar .nav-link span {
-            font-size: 11px;
-        }
-
-        .navbar .nav-item {
-            border-radius: 10px;
-            transition: all 0.2s ease;
-            margin: 0 4px;
-        }
-
-            .navbar .nav-item:hover {
-                background: rgba(255,255,255,0.15);
-            }
-
-            .navbar .nav-item.active {
-                background: rgba(255,255,255,0.25);
-            }
-
-        .navbar .nav-link.active {
-            color: #fff !important;
-            font-weight: 600;
-        }
-
-        .navbar .nav-link::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            width: 0;
-            height: 3px;
-            background: white;
-            transition: all 0.25s ease;
-            transform: translateX(-50%);
-        }
-
-        .navbar .nav-link:hover::after {
-            width: 60%;
-        }
-
-        .navbar .nav-link.active::after {
+            height: var(--nav-height);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
             width: 100%;
+            z-index: 1000;
+            padding: 0;
         }
 
         .logo {
             font-weight: 800;
-            font-size: 24px;
-            color: white;
+            font-size: 26px;
+            color: var(--primary-color);
             text-decoration: none;
-            letter-spacing: 1px;
+            letter-spacing: -0.5px;
         }
 
-        /* SEARCH BOX STYLE */
         .SearchContainer {
             display: flex;
             align-items: center;
             position: relative;
-            width: 40px;
-            height: 40px;
-            border-radius: 50px;
-            background: white;
-            transition: all 0.35s ease;
+            width: 44px;
+            height: 44px;
+            border-radius: 22px;
+            background: #f0f2f5;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
-            cursor: pointer;
         }
 
             .SearchContainer i {
                 position: absolute;
-                left: 12px;
-                font-size: 16px;
-                color: #777;
-                pointer-events: none;
+                left: 14px;
+                color: var(--text-muted);
             }
 
         .search-input {
@@ -118,157 +82,280 @@
             outline: none;
             width: 0;
             opacity: 0;
-            padding-left: 35px;
-            transition: all 0.35s ease;
+            padding-left: 42px;
             background: transparent;
+            transition: all 0.3s ease;
         }
 
-        .SearchContainer:hover {
-            width: 220px;
-            border-radius: 25px;
+        .SearchContainer:focus-within, .SearchContainer:hover {
+            width: 260px;
+            background: #e5e7eb;
         }
 
-            .SearchContainer:hover .search-input {
+            .SearchContainer:focus-within .search-input, .SearchContainer:hover .search-input {
                 width: 100%;
                 opacity: 1;
             }
 
-        /* --- GIỮ NGUYÊN SIDEBAR STYLE --- */
-        .card {
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            margin-bottom: 1rem;
-        }
-
-        .profile-cover {
-            height: 60px;
-            background: #0073b1;
-            border-radius: 12px 12px 0 0;
-        }
-
-        .avatar {
-            width: 72px;
-            height: 72px;
-            border: 3px solid white;
-            margin-top: -36px;
-            background: white;
-        }
-
-        .filter-section h6 {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #666;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .filter-link {
-            text-decoration: none;
-            color: #444;
-            font-size: 0.9rem;
+        .navbar .nav-link {
+            color: var(--text-muted) !important;
             display: flex;
-            justify-content: space-between;
-            padding: 5px 0;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.2s;
         }
 
-            .filter-link:hover {
-                color: #0073b1;
+        .navbar .nav-item.active .nav-link {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+
+        .input-modern {
+            border: 1px solid #e2e8f0;
+            padding: 12px 16px;
+            border-radius: 12px !important;
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+
+            .input-modern:focus {
+                border-color: #2563eb;
+                box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
             }
 
-        /* --- CẢI THIỆN JOB CARD UI --- */
+        .input-group-text {
+            border-radius: 12px 0 0 12px !important;
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-select.input-modern {
+            background-position: right 1rem center;
+        }
+
+        #upgradeBusinessForm label {
+            font-size: 13px;
+            margin-bottom: 6px;
+            color: #475569;
+        }
+
+        /* --- MODERN JOB CARD --- */
         .job-card {
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid var(--border-color) !important;
             cursor: pointer;
+            position: relative;
         }
 
             .job-card:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                border-color: #42a5f5;
+                transform: translateY(-2px);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
+                border-color: var(--primary-color) !important;
             }
 
-        .job-icon-container {
+        .company-logo-wrapper {
             width: 56px;
             height: 56px;
-            background: #eef3f8;
+            background: #f8fafc;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            color: #1e88e5;
+            overflow: hidden;
         }
 
-        .salary-badge {
-            background: #e6f4ea;
-            color: #1e7e34;
+        .job-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+            .job-title:hover {
+                color: var(--primary-color);
+                text-decoration: underline;
+            }
+
+        .job-meta-item {
+            font-size: 13px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .salary-tag {
+            color: #059669; /* Green emerald */
             font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 50px;
-            font-size: 0.8rem;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 13px;
         }
 
-        .location-badge {
-            background: #f0f2f5;
-            color: #666;
-            padding: 4px 12px;
+        .bookmark-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--text-muted);
+            transition: 0.2s;
+            font-size: 18px;
+        }
+
+            .bookmark-btn:hover {
+                color: #f59e0b;
+            }
+
+        /* --- CARDS --- */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0,0,0,0.04);
+            border-radius: var(--card-radius);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            margin-bottom: 20px;
+        }
+
+        .profile-cover {
+            height: 70px;
+            background: linear-gradient(135deg, #6366f1, #2563eb);
+            border-radius: 16px 16px 0 0;
+        }
+
+        .avatar-sidebar {
+            width: 72px;
+            height: 72px;
+            border: 4px solid #fff;
+            border-radius: 50%;
+            margin-top: -36px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* --- UPGRADE & POST JOB --- */
+        .upgrade-card {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white;
+        }
+
+        .btn-upgrade {
+            background: #f59e0b;
+            color: #fff;
+            border: none;
+            font-weight: 700;
             border-radius: 50px;
-            font-size: 0.8rem;
+        }
+
+        .post-job-teaser {
+            background: #fff;
+            border: 1px dashed var(--primary-color);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+            .post-job-teaser:hover {
+                background: #f8faff;
+            }
+
+        .filter-pill {
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            background: #fff;
+            font-size: 13px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+            .filter-pill.active {
+                background: var(--primary-color);
+                color: #fff;
+                border-color: var(--primary-color);
+            }
+
+        .input-modern {
+            border-radius: 10px;
+            padding: 12px;
+            border: 1px solid #e5e7eb;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <div class="container d-flex align-items-center">
-            <a class="logo" asp-controller="Dashboard" asp-action="Index">Aris</a>
-            <div class="SearchContainer ms-3 d-none d-md-flex">
-                <i class="bi bi-search"></i>
-                <input class="form-control search-input" placeholder="Search jobs...">
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <div class="d-flex align-items-center">
+                <a asp-controller="Dashboard" asp-action="Index" class="logo me-3 text-decoration-none">Aris</a>
+                <div class="SearchContainer d-none d-md-flex">
+                    <i class="bi bi-search"></i>
+                    <input class="form-control search-input" placeholder="Search jobs...">
+                </div>
             </div>
-            <ul class="navbar-nav ms-auto flex-row">
-                <li class="nav-item mx-2"><a class="nav-link text-center"><i class="bi bi-house-door-fill d-block"></i><span>Home</span></a></li>
-                <li class="nav-item mx-2 active"><a class="nav-link text-center active"><i class="bi bi-briefcase-fill d-block"></i><span>Jobs</span></a></li>
-                <li class="nav-item mx-2"><a class="nav-link text-center"><i class="bi bi-chat-dots-fill d-block"></i><span>Messaging</span></a></li>
-                <li class="nav-item mx-2"><a class="nav-link text-center"><i class="bi bi-bell-fill d-block"></i><span>Notif</span></a></li>
-                <li class="nav-item dropdown ms-3">
-                    <a class="nav-link dropdown-toggle d-flex align-items-center p-0" data-bs-toggle="dropdown">
-                        <img src="https://ui-avatars.com/api/?name=@Model.User.Username" class="rounded-circle" width="32" height="32">
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end mt-2">
-                        <li><a class="dropdown-item" href="#">View Profile</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item text-danger" href="#">Sign Out</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <div class="ms-auto">
+                <ul class="navbar-nav flex-row gap-2">
+                    <li class="nav-item"><a asp-controller="Dashboard" asp-action="Index" class="nav-link"><i class="bi bi-house-door"></i><span>Home</span></a></li>
+                    <li class="nav-item active"><a asp-controller="Jobs" asp-action="Index" class="nav-link"><i class="bi bi-briefcase-fill"></i><span>Jobs</span></a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link p-0" data-bs-toggle="dropdown">
+                            <img src="@profile.AvatarUrl" class="rounded-circle" width="34" height="34">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end border-0 shadow mt-3">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="#">Sign Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <div class="container mt-4">
+    <div class="container">
+        <div class="d-flex gap-2 overflow-x-auto pb-3 mb-2">
+            <div class="filter-pill active">All Jobs</div>
+            <div class="filter-pill">Remote</div>
+            <div class="filter-pill">Full-time</div>
+            <div class="filter-pill">Internship</div>
+            <div class="filter-pill">Engineering</div>
+        </div>
+
         <div class="row g-4">
             <div class="col-lg-3">
-                <div class="card">
+                <div class="card sticky-top" style="top: 90px;">
                     <div class="profile-cover"></div>
                     <div class="card-body text-center pt-0">
-                        <img src="https://ui-avatars.com/api/?name=@Model.User.Username" class="avatar rounded-circle mb-2">
-                        <h6 class="mb-0 fw-bold">@Model.User.Username</h6>
-                        <p class="text-muted small">Software Engineer</p>
-                    </div>
-                    <div class="card-footer bg-white border-top-0">
-                        <div class="filter-section">
-                            <h6>My Career</h6>
-                            <a href="#" class="filter-link"><span><i class="bi bi-bookmark-fill me-2"></i>My Jobs</span> <span class="badge bg-light text-dark">5</span></a>
+                        <img src="@profile.AvatarUrl" class="avatar-sidebar mb-2">
+                        <h6 class="fw-bold mb-0">@Model.User.Username</h6>
+                        <p class="text-muted small">@Model.User.Profile.JobTitle</p>
+                        <hr>
+                        <div class="text-start px-2">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted small">Applied Jobs</span>
+                                <span class="badge bg-primary rounded-pill">12</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted small">Saved</span>
+                                <span class="badge bg-light text-dark rounded-pill">5</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-6">
-                <div class="card p-3 mb-3 border-0">
-                    <h5 class="fw-bold mb-0">Recommended for you</h5>
-                    <small class="text-muted">Based on your profile and search history</small>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0">Top Job Picks</h5>
+                    <div class="dropdown">
+                        <button class="btn btn-sm dropdown-toggle fw-medium text-muted border-0 bg-transparent" type="button" data-bs-toggle="dropdown">
+                            Sort by: <span class="text-dark">Newest</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm mt-2">
+                            <li><a class="dropdown-item active" href="#">Newest</a></li>
+                            <li><a class="dropdown-item" href="#">Highest Salary</a></li>
+                            <li><a class="dropdown-item" href="#">Most Relevant</a></li>
+                            <li><a class="dropdown-item" href="#">Popular</a></li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div id="jobContainer">
@@ -276,23 +363,68 @@
                 </div>
 
                 <div class="text-center my-4">
-                    <button id="loadMoreBtn" class="btn btn-primary rounded-pill px-5 shadow-sm">
-                        <span id="btnText">Show more jobs</span>
+                    <button id="loadMoreBtn" class="btn btn-white border shadow-sm rounded-pill px-5 py-2 fw-bold">
+                        <span id="btnText">Show more results</span>
                         <span id="btnSpinner" class="spinner-border spinner-border-sm d-none"></span>
                     </button>
                 </div>
             </div>
 
             <div class="col-lg-3">
-                <div class="card p-3">
-                    <h6 class="fw-bold mb-3">Hiring Now</h6>
-                    <div class="d-flex align-items-start mb-3">
-                        <div class="bg-light p-2 rounded me-2"><i class="bi bi-graph-up-arrow text-primary"></i></div>
-                        <div>
-                            <p class="mb-0 small fw-bold">Tech layoffs slowing down</p>
-                            <small class="text-muted">4d ago • 1,240 readers</small>
+                <div class="sticky-top" style="top: 90px;">
+
+                    @if (Model.User.Role == "Employee")
+                    {
+                        <div class="card upgrade-card p-4 border-0 shadow-lg">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-rocket-takeoff-fill text-warning fs-4 me-3"></i>
+                                <h6 class="fw-bold mb-0">Aris for Business</h6>
+                            </div>
+                            <p class="small opacity-75 mb-4">Hire top talent and manage your team with professional tools.</p>
+                            <button class="btn btn-upgrade w-100 py-2" data-bs-toggle="modal" data-bs-target="#upgradeModal">
+                                Upgrade Account
+                            </button>
+                        </div>
+                    }
+                    else if (Model.User.Role == "Business")
+                    {
+                        <div class="card p-3 post-job-teaser shadow-sm" data-bs-toggle="modal" data-bs-target="#postJobModal">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle text-primary">
+                                    <i class="bi bi-plus-lg fs-4"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-0">Post a new job</h6>
+                                    <small class="text-muted">Reach candidates</small>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="card p-3">
+                        <h6 class="fw-bold mb-3 d-flex align-items-center">
+                            <i class="bi bi-stars text-warning me-2"></i>Job Insights
+                        </h6>
+                        <div class="p-3 rounded-4 bg-light">
+                            <p class="small mb-0 text-muted">
+                                Based on your skills in <b>.NET</b> and <b>React</b>, you're in the top 10% of applicants.
+                            </p>
                         </div>
                     </div>
+
+                    <div class="card p-3">
+                        <h6 class="fw-bold mb-3">Guidance</h6>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-primary bg-opacity-10 p-2 rounded-3 text-primary">
+                                <i class="bi bi-file-earmark-person fs-5"></i>
+                            </div>
+                            <div>
+                                <p class="mb-0 small fw-bold">Optimize Resume</p>
+                                <small class="text-muted">Improve reach by 40%</small>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -300,26 +432,123 @@
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
         let skip = @Model.JobPostings.Count;
         const take = 5;
 
         $("#loadMoreBtn").on("click", function() {
             const btn = $(this);
-            $("#btnText").addClass("d-none");
+            $("#btnText").addClass("opacity-0");
             $("#btnSpinner").removeClass("d-none");
 
             $.get("/Jobs/GetJobs", { skip: skip, take: take }, function(data) {
-                if (!data || data.success === false) {
-                    btn.html("No more jobs").addClass("disabled");
+                if (!data || data.trim() === "") {
+                    btn.html("No more opportunities").addClass("disabled");
                 } else {
                     $("#jobContainer").append(data);
                     skip += take;
                 }
-                $("#btnText").removeClass("d-none");
+                $("#btnText").removeClass("opacity-0");
                 $("#btnSpinner").addClass("d-none");
             });
         });
     </script>
+
+    <div class="modal fade" id="upgradeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 24px; overflow: hidden;">
+                <div class="row g-0">
+                    <div class="col-lg-4 d-none d-lg-block bg-dark p-5 text-white">
+                        <div class="d-flex flex-column h-100">
+                            <div class="mb-4">
+                                <span class="badge bg-primary mb-2">ARIS BUSINESS</span>
+                                <h3 class="fw-bold">Nâng cấp Chuyên nghiệp</h3>
+                            </div>
+                            <ul class="list-unstyled small opacity-75">
+                                <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Xuất hiện ưu tiên trên kết quả tìm kiếm</li>
+                                <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Mở khóa bộ lọc ứng viên nâng cao</li>
+                                <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Tích xanh xác minh doanh nghiệp</li>
+                            </ul>
+                            <div class="mt-auto pt-4 border-top border-secondary">
+                                <p class="x-small mb-0">Hỗ trợ: support@aris.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8 p-4 p-md-5">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="fw-bold mb-0">Thiết lập doanh nghiệp</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <form id="upgradeBusinessForm">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold">Tên doanh nghiệp *</label>
+                                    <input type="text" class="form-control input-modern" name="CompanyName" placeholder="Tên đầy đủ trên giấy phép kinh doanh" required>
+                                </div>
+
+                                <div class="col-md-7">
+                                    <label class="form-label small fw-bold">Lĩnh vực kinh doanh *</label>
+                                    <select class="form-select input-modern" name="Industry" required>
+                                        <option value="" selected disabled>Chọn lĩnh vực...</option>
+                                        <option value="Software">Công nghệ phần mềm</option>
+                                        <option value="E-commerce">Thương mại điện tử</option>
+                                        <option value="Fintech">Tài chính công nghệ</option>
+                                        <option value="Hardware">Sản xuất phần cứng</option>
+                                        <option value="Logistics">Vận tải & Kho bãi</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <label class="form-label small fw-bold">Mã số thuế</label>
+                                    <input type="text" class="form-control input-modern" name="TaxCode" placeholder="Ví dụ: 0123456789">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label small fw-bold">Năm thành lập</label>
+                                    <input type="number" class="form-control input-modern" name="FoundedYear" placeholder="2024" min="1900" max="2026">
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="form-label small fw-bold">Quy mô nhân sự</label>
+                                    <select class="form-select input-modern" name="CompanySize">
+                                        <option value="1-10">Dưới 10 nhân sự</option>
+                                        <option value="11-50">11 - 50 nhân sự</option>
+                                        <option value="51-200">51 - 200 nhân sự</option>
+                                        <option value="200+">Trên 200 nhân sự</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold">Website / Portfolio</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light"><i class="bi bi-globe"></i></span>
+                                        <input type="url" class="form-control input-modern" name="WebsiteUrl" placeholder="https://www.company.com">
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold">Địa chỉ trụ sở</label>
+                                    <input type="text" class="form-control input-modern" name="CompanyAddress" placeholder="Số nhà, tên đường, quận/huyện, thành phố">
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold">Giới thiệu ngắn gọn</label>
+                                    <textarea class="form-control input-modern" name="Description" rows="3" placeholder="Mô tả về văn hóa hoặc sản phẩm của công ty..."></textarea>
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-primary w-100 py-3 fw-bold rounded-3 shadow-sm">
+                                        Nâng cấp ngay <i class="bi bi-rocket-takeoff ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -3,20 +3,31 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.Facebook;
+using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// --- 1. CẤU HÌNH SERVICES ---
+builder.Services.AddControllersWithViews();
+
+// Lấy thông tin Auth từ appsettings.json
 var google = builder.Configuration.GetSection("Authentication:Google");
 var facebook = builder.Configuration.GetSection("Authentication:Facebook");
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+
+// DATABASE: Cấu hình tự động thử lại khi mạng lag (Retry)
 builder.Services.AddDbContextPool<ArisDBContext>(options =>
 {
     var connection = builder.Configuration.GetConnectionString("DefaultConnection");
-
-    Console.WriteLine(connection);
-
-    options.UseSqlServer(connection);
+    options.UseSqlServer(connection, sqlServerOptionsAction: sqlOptions =>
+    {
+        sqlOptions.EnableRetryOnFailure(
+            maxRetryCount: 5,
+            maxRetryDelay: TimeSpan.FromSeconds(30),
+            errorNumbersToAdd: null);
+    });
 });
+
+// AUTHENTICATION: Cấu hình Cookie an toàn cho Cloud
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -25,8 +36,11 @@ builder.Services.AddAuthentication(options =>
 .AddCookie(options =>
 {
     options.LoginPath = "/Account/Login";
-    options.ExpireTimeSpan = TimeSpan.FromDays(7); 
+    options.ExpireTimeSpan = TimeSpan.FromDays(7);
     options.SlidingExpiration = true;
+    // Cookie cần thiết để chạy qua Proxy/HTTPS của Host
+    options.Cookie.SameSite = SameSiteMode.Lax;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
 })
 .AddGoogle(options =>
 {
@@ -40,18 +54,38 @@ builder.Services.AddAuthentication(options =>
     options.AppSecret = facebook["ClientSecret"]!;
     options.CallbackPath = "/signin-facebook";
 });
+
 builder.Services.AddAuthorization();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// --- 2. CẤU HÌNH MIDDLEWARE (THỨ TỰ CỰC KỲ QUAN TRỌNG) ---
+
+// Hiện lỗi chi tiết để debug (Xóa dòng này khi web đã chạy ổn định)
+app.UseDeveloperExceptionPage();
+
+// PHẢI LÀ DÒNG ĐẦU TIÊN để xử lý IP/Protocol từ Proxy của MonsterASP
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
+// FIX LỖI CORRELATION FAILED: Ép Scheme là https cho mọi Request trên Cloud
+app.Use((context, next) =>
+{
+    context.Request.Scheme = "https";
+    return next();
+});
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseRouting();
+
+// Authentication PHẢI nằm TRƯỚC Authorization
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -59,7 +93,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Account}/{action=Login}")
+    pattern: "{controller=Account}/{action=Login}/{id?}")
     .WithStaticAssets();
 
 app.Run();

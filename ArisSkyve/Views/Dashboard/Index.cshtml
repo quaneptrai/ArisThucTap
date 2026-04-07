@@ -1,581 +1,842 @@
-﻿@model ArisSkyve.Domain.Entities.User
-@{
-    var profile = Model.Profile;
-    var avatar = profile?.AvatarUrl ?? "/images/default-avatar.png";
-    var bio = profile?.Bio ?? "No bio yet";
-    var location = profile?.Location ?? "Unknown";
-    var jobTitle = profile?.JobTitle ?? "No job title";
-    var isStudent = profile?.isStudent ?? false;
-    var school = profile?.Education?.School ?? "Unknown school";
-    Layout = null;
-}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aris Dashboard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    
-    <style>
-        :root {
-            --bg-color: #f3f4f6;
-            --card-bg: #ffffff;
-            --primary-color: #2563eb;
-            --primary-hover: #1d4ed8;
-            --text-main: #1f2937;
-            --text-muted: #6b7280;
-            --border-color: #e5e7eb;
-            --card-radius: 16px;
-            --nav-height: 68px;
-        }
+﻿    @model ArisSkyve.Domain.Entities.User
+    @{
+        var profile = Model.Profile;
+        var avatar = profile?.AvatarUrl ?? "/images/default-avatar.png";
+        var bio = profile?.Bio ?? "No bio yet";
+        var location = profile?.Location ?? "Unknown";
+        var school = profile?.Education?.School ?? "Unknown school";
+        Layout = null;
+    }
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aris Dashboard | Connect & Grow</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-        body {
-            background-color: var(--bg-color);
-            font-family: 'Inter', sans-serif;
-            color: var(--text-main);
-            padding-top: calc(var(--nav-height) + 20px);
-        }
+        <style>
+            :root {
+                --bg-color: #f3f4f6;
+                --primary-color: #2563eb;
+                --text-main: #1f2937;
+                --text-muted: #6b7280;
+                --border-color: #e5e7eb;
+                --nav-height: 68px;
+            }
 
-        /* --- MODERN NAVBAR --- */
-        .navbar {
-            height: var(--nav-height);
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 0;
-        }
+            body {
+                background-color: var(--bg-color);
+                font-family: 'Inter', sans-serif;
+                padding-top: calc(var(--nav-height) + 20px);
+            }
 
-        .logo {
-            font-weight: 800;
-            font-size: 26px;
-            color: var(--primary-color);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-            transition: color 0.2s;
-        }
-        .logo:hover {
-            color: var(--primary-hover);
-        }
+            /* Navbar */
+            .navbar {
+                height: var(--nav-height);
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 1000;
+                padding: 0;
+            }
 
-        .SearchContainer {
-            display: flex;
-            align-items: center;
-            position: relative;
-            width: 44px;
-            height: 44px;
-            border-radius: 22px;
-            background: #f0f2f5;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
-            cursor: pointer;
-        }
-        .SearchContainer i {
-            position: absolute;
-            left: 14px;
-            font-size: 18px;
-            color: var(--text-muted);
-            pointer-events: none;
-        }
-        .search-input {
-            border: none;
-            outline: none;
-            width: 0;
-            opacity: 0;
-            padding-left: 42px;
-            padding-right: 16px;
-            background: transparent;
-            font-weight: 500;
-            font-size: 14px;
-            color: var(--text-main);
-            transition: all 0.3s ease;
-        }
-        .SearchContainer:focus-within,
-        .SearchContainer:hover {
-            width: 260px;
-            background: #e5e7eb;
-            box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
-        }
-        .SearchContainer:focus-within .search-input,
-        .SearchContainer:hover .search-input {
-            width: 100%;
-            opacity: 1;
-        }
+            .logo {
+                font-weight: 800;
+                font-size: 26px;
+                color: var(--primary-color);
+                text-decoration: none;
+                letter-spacing: -0.5px;
+                transition: color 0.2s;
+            }
 
-        .navbar-nav {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            height: 100%;
-        }
-        .navbar .nav-item {
-            height: 100%;
-            display: flex;
-            align-items: center;
-        }
-        .navbar .nav-link {
-            color: var(--text-muted) !important;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            position: relative;
-            min-width: 76px;
-        }
-        .navbar .nav-link i {
-            font-size: 20px !important;
-            margin-bottom: 2px;
-            transition: transform 0.2s ease;
-        }
-        
-        .navbar .nav-link:hover {
-            background-color: #f3f4f6;
-            color: var(--text-main) !important;
-        }
-        .navbar .nav-link:hover i {
-            transform: scale(1.1);
-        }
-        .navbar .nav-item.active .nav-link {
-            color: var(--primary-color) !important;
-            font-weight: 600;
-        }
-        .navbar .nav-item.active .nav-link::after {
-            content: "";
-            position: absolute;
-            bottom: -11px;
-            left: 10%;
-            width: 80%;
-            height: 3px;
-            background: var(--primary-color);
-            border-radius: 4px 4px 0 0;
-        }
+                .logo:hover {
+                    color: var(--primary-hover);
+                }
 
-        .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(0,0,0,0.04);
-            border-radius: var(--card-radius);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .card:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-        }
+            .SearchContainer {
+                display: flex;
+                align-items: center;
+                position: relative;
+                width: 44px;
+                height: 44px;
+                border-radius: 22px;
+                background: #f0f2f5;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                overflow: hidden;
+                cursor: pointer;
+            }
 
-        .profile-cover {
-            height: 80px;
-            background: linear-gradient(135deg, #a78bfa, #3b82f6);
-            border-radius: var(--card-radius) var(--card-radius) 0 0;
-            position: relative;
-        }
-        .profile-card-body {
-            margin-top: -40px;
-        }
-        .profile-card-body .avatar {
-            width: 76px;
-            height: 76px;
-            border-radius: 50%;
-            border: 4px solid var(--card-bg);
-            object-fit: cover;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .profile-name {
-            font-weight: 700;
-            font-size: 16px;
-            color: var(--text-main);
-        }
-        
-        .avatar-wrapper {
-            position: relative;
-            min-width: 50px;
-        }
-        .avatar-wrapper img {
-            border: 2px solid var(--border-color);
-            object-fit: cover;
-        }
-        
-        .bubble-container {
-            position: relative;
-            width: 100%;
-            display: flex;
-            align-items: center; 
-            gap: 12px;
-        }
-        .post-input-bubble {
-            border-radius: 24px;
-            padding: 12px 20px;
-            border: 1px solid transparent;
-            background: #f0f2f5;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            flex: 1;
-        }
-        .post-input-bubble:focus {
-            background: #ffffff;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
-        }
+                .SearchContainer i {
+                    position: absolute;
+                    left: 14px;
+                    font-size: 18px;
+                    color: var(--text-muted);
+                    pointer-events: none;
+                }
 
-        .media-type i {
-            font-size: 22px;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 50%;
-            transition: background 0.2s;
-        }
-        .media-type i:hover {
-            background: #f3f4f6;
-        }
-        .images-type { color: #10b981; }
-        .cameras-type { color: #3b82f6; }
+            .search-input {
+                border: none;
+                outline: none;
+                width: 0;
+                opacity: 0;
+                padding-left: 42px;
+                padding-right: 16px;
+                background: transparent;
+                font-weight: 500;
+                font-size: 14px;
+                color: var(--text-main);
+                transition: all 0.3s ease;
+            }
 
-        .speech-decor {
-            position: absolute;
-            bottom: 55px;
-            left: -10px;
-            background: #10b981;
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 16px;
-            font-size: 12px;
-            font-weight: 600;
-            white-space: nowrap;
-            opacity: 0;
-            transform: translateY(10px) scale(0.95);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-            pointer-events: none;
-            z-index: 10;
-        }
-        .speech-decor::before, .speech-decor::after {
-            content: "";
-            position: absolute;
-            background: #10b981;
-            border-radius: 50%;
-            opacity: 0;
-            transform: scale(0.5);
-        }
-        .speech-decor::before { width: 10px; height: 10px; bottom: -14px; left: 20px; }
-        .speech-decor::after { width: 6px; height: 6px; bottom: -22px; left: 14px; }
-        
-        .speech-decor.show {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-        .speech-decor.show::before { animation: bubblePop 0.3s ease forwards 0.1s; }
-        .speech-decor.show::after { animation: bubblePop 0.3s ease forwards 0.2s; }
-        
-        .speech-decor.show.typing { animation: thinkingPulse 2s ease-in-out infinite; }
-        
-        @@keyframes thinkingPulse {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-4px) scale(1.02); }
-        }
-        @@keyframes bubblePop {
-            from { opacity: 0; transform: scale(0.3); }
-            to { opacity: 1; transform: scale(1); }
-        }
+            .SearchContainer:focus-within,
+            .SearchContainer:hover {
+                width: 260px;
+                background: #e5e7eb;
+                box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+            }
 
-        .dots { display: none; margin-left: 2px; }
-        .dots span {
-            display: inline-block;
-            animation: bounce 1.2s infinite;
-        }
-        .dots span:nth-child(1) { animation-delay: 0s; }
-        .dots span:nth-child(2) { animation-delay: 0.2s; }
-        .dots span:nth-child(3) { animation-delay: 0.4s; }
-        @@keyframes bounce {
-            0%, 80%, 100% { transform: translateY(0); opacity: 0.5; }
-            40% { transform: translateY(-4px); opacity: 1; }
-        }
+                .SearchContainer:focus-within .search-input,
+                .SearchContainer:hover .search-input {
+                    width: 100%;
+                    opacity: 1;
+                }
 
-        .job-item {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .job-item:last-child { border: none; padding-bottom: 0; }
-        
-        .right-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--text-main);
-        }
+            .navbar-nav {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                height: 100%;
+            }
 
-        .btn-modern {
-            font-weight: 600;
-            border-radius: 20px;
-            padding: 4px 16px;
-            font-size: 13px;
-            transition: all 0.2s;
-        }
-        .btn-outline-primary {
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-        }
-        .btn-outline-primary:hover {
-            background: var(--primary-color);
-            color: white;
-        }
-        .btn-action {
-            font-weight: 600;
-            color: var(--text-muted);
-            border-radius: 8px;
-            padding: 8px 16px;
-        }
-        .btn-action:hover {
-            background: #f0f2f5;
-            color: var(--text-main);
-        }
+            .navbar .nav-item {
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
 
-        .footer {
-            font-size: 13px;
-            color: var(--text-muted);
-            text-align: center;
-            margin-top: 20px;
-            margin-bottom: 40px;
-        }
+            .navbar .nav-link {
+                color: var(--text-muted) !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+                font-weight: 500;
+                padding: 8px 16px;
+                border-radius: 8px;
+                transition: all 0.2s ease;
+                position: relative;
+                min-width: 76px;
+            }
 
-        @@media (max-width:991px) {
-            .sidebar-right { margin-top: 20px; }
-            .navbar .nav-link span { display: none; }
-            .navbar .nav-link { min-width: auto; padding: 8px; }
-            .SearchContainer { width: 40px; }
-        }
-    </style>
-</head>
-<body>
+                .navbar .nav-link i {
+                    font-size: 20px !important;
+                    margin-bottom: 2px;
+                    transition: transform 0.2s ease;
+                }
 
-    <nav class="navbar navbar-expand-lg">
-        <div class="container custom-nav">
-            <div class="d-flex align-items-center">
-                <a asp-action="Index" class="logo me-3">Aris</a>
-                <div class="SearchContainer">
-                    <i class="bi bi-search"></i>
-                    <input class="form-control search-input" placeholder="Search for jobs, people, posts...">
+                .navbar .nav-link:hover {
+                    background-color: #f3f4f6;
+                    color: var(--text-main) !important;
+                }
+
+                    .navbar .nav-link:hover i {
+                        transform: scale(1.1);
+                    }
+
+            .navbar .nav-item.active .nav-link {
+                color: var(--primary-color) !important;
+                font-weight: 600;
+            }
+
+                .navbar .nav-item.active .nav-link::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -2px;
+                    left: 10%;
+                    width: 80%;
+                    height: 3px;
+                    background: var(--primary-color);
+                    border-radius: 4px 4px 0 0;
+                }
+
+            .card {
+                background: var(--card-bg);
+                border: 1px solid rgba(0,0,0,0.04);
+                border-radius: var(--card-radius);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+                .card:hover {
+                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+                }
+
+            .profile-cover {
+                height: 60px;
+                background: linear-gradient(135deg, #a78bfa, #3b82f6);
+                border-radius: var(--card-radius) var(--card-radius) 0 0;
+                position: relative;
+            }
+
+            .profile-card-body {
+                margin-top: -40px;
+            }
+
+                .profile-card-body .avatar {
+                    width: 76px;
+                    height: 76px;
+                    border-radius: 50%;
+                    border: 4px solid var(--card-bg);
+                    object-fit: cover;
+                    background: white;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                }
+
+            .profile-name {
+                font-weight: 700;
+                font-size: 16px;
+                color: var(--text-main);
+            }
+
+            .avatar-wrapper {
+                position: relative;
+                min-width: 50px;
+            }
+
+                .avatar-wrapper img {
+                    border: 2px solid var(--border-color);
+                    object-fit: cover;
+                }
+
+
+            /* UI Components */
+            .card {
+                border-radius: 16px;
+                border: 1px solid rgba(0,0,0,0.04);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+                margin-bottom: 1.5rem;
+            }
+
+
+            .avatar-sidebar {
+                width: 76px;
+                height: 76px;
+                border: 4px solid #fff;
+                border-radius: 50%;
+                margin-top: -38px;
+                object-fit: cover;
+            }
+
+            /* Speech Decor Fixed */
+            .speech-decor {
+                position: absolute;
+                bottom: 55px; /* Điều chỉnh lại vị trí cho khớp trên đầu avatar */
+                left: 0;
+                background: #10b981;
+                color: #fff;
+                padding: 6px 12px;
+                border-radius: 12px;
+                font-size: 12px;
+                white-space: nowrap;
+                opacity: 0;
+                transform: translateY(10px); /* Bắt đầu thấp hơn một chút */
+                transition: all 0.35s cubic-bezier(0.25, 1.25, 0.5, 1); /* Hiệu ứng đàn hồi */
+                pointer-events: none;
+                z-index: 10;
+            }
+
+                /* Khi có class .show sẽ hiện lên */
+                .speech-decor.show {
+                    opacity: 1;
+                    transform: translateY(0); /* Bay lên vị trí chuẩn */
+                }
+
+                /* Thêm một cái đuôi nhỏ cho bong bóng cho đẹp */
+                .speech-decor::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -5px;
+                    left: 15px;
+                    border-width: 5px 5px 0;
+                    border-style: solid;
+                    border-color: #10b981 transparent transparent;
+                }
+
+            /* Article Mode Styles */
+            .article-editor {
+                border: 1px solid var(--border-color);
+                border-radius: 12px;
+                padding: 15px;
+                background: #fafafa;
+            }
+
+            .media-upload-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 16px;
+                border-radius: 20px;
+                background: #f0f2f5;
+                cursor: pointer;
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+                .media-upload-btn.img {
+                    color: #10b981;
+                }
+
+                .media-upload-btn.vid {
+                    color: #f59e0b;
+                }
+
+            /* Sidebar Company */
+            .company-logo {
+                width: 40px;
+                height: 40px;
+                border-radius: 8px;
+                object-fit: cover;
+            }
+
+            .btn-follow {
+                font-size: 12px;
+                font-weight: 700;
+                border-radius: 20px;
+                border: 1px solid var(--primary-color);
+                color: var(--primary-color);
+                background: transparent;
+            }
+
+                .btn-follow:hover {
+                    background: var(--primary-color);
+                    color: white;
+                }
+
+            .post-card {
+                border-radius: 16px;
+                background: #fff;
+                border: 1px solid var(--border-color);
+                margin-bottom: 20px;
+            }
+
+            .post-header img {
+                width: 42px;
+                height: 42px;
+                object-fit: cover;
+            }
+
+            .post-content {
+                font-size: 15px;
+                color: var(--text-main);
+                line-height: 1.6;
+            }
+
+            .post-actions {
+                border-top: 1px solid #f0f2f5;
+                padding-top: 10px;
+            }
+
+            .action-btn {
+                flex: 1;
+                padding: 8px;
+                border-radius: 8px;
+                color: var(--text-muted);
+                font-weight: 600;
+                transition: 0.2s;
+                background: transparent;
+                border: none;
+            }
+
+                .action-btn:hover {
+                    background: #f3f4f6;
+                    color: var(--primary-color);
+                }
+
+            .badge-article {
+                background: #e0e7ff;
+                color: #4338ca;
+                font-size: 11px;
+                padding: 4px 8px;
+                border-radius: 4px;
+            }
+            .typing-dots span {
+                display: inline-block;
+                width: 3px;
+                height: 3px;
+                margin-left: 2px;
+                background-color: white;
+                border-radius: 50%;
+                animation: bounce 1.4s infinite ease-in-out both;
+            }
+
+                .typing-dots span:nth-child(1) {
+                    animation-delay: -0.32s;
+                }
+
+                .typing-dots span:nth-child(2) {
+                    animation-delay: -0.16s;
+                }
+
+            @@keyframes bounce {
+                0%, 80%, 100% {
+                    transform: scale(0);
+                }
+
+                40% {
+                    transform: scale(1.0);
+                }
+            }
+
+            /* Cải thiện hiệu ứng hiện/ẩn của bubble */
+            .speech-decor {
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+        </style>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <div class="d-flex align-items-center">
+                    <a asp-controller="Dashboard" asp-action="Index" class="logo me-3">Aris</a>
+                    <div class="SearchContainer d-none d-md-flex">
+                        <i class="bi bi-search"></i>
+                        <input class="form-control search-input" placeholder="Search jobs, skills, companies...">
+                    </div>
+                </div>
+
+                <div class="ms-auto d-flex align-items-center">
+                    <ul class="navbar-nav flex-row gap-2">
+                        <li class="nav-item active"><a asp-controller="Dashboard" asp-action="Index" class="nav-link"><i class="bi bi-house-door"></i><span>Home</span></a></li>
+                        <li class="nav-item"><a class="nav-link"><i class="bi bi-people-fill"></i><span>Network</span></a></li>
+                        <li class="nav-item"><a asp-controller="Jobs" asp-action="Index" class="nav-link"><i class="bi bi-briefcase-fill"></i><span>Jobs</span></a></li>
+                        <li class="nav-item"><a class="nav-link"><i class="bi bi-bell-fill"></i><span>Notification</span></a></li>
+                        <li class="nav-item dropdown ms-2">
+                            <a class="nav-link p-0" data-bs-toggle="dropdown">
+                                <img src="@profile.AvatarUrl" class="rounded-circle" width="34" height="34">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end border-0 shadow mt-3 rounded-3">
+                                <li><a class="dropdown-item py-2 fw-medium" href="#">Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item py-2 fw-medium text-danger" href="#">Sign Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
+        </nav>
 
-            <div class="ms-auto d-flex align-items-center">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a href="#" class="nav-link">
-                            <i class="bi bi-house-door-fill"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="bi bi-people-fill"></i>
-                            <span>Network</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-controller="Jobs" asp-action="Index" class="nav-link">
-                            <i class="bi bi-briefcase-fill"></i>
-                            <span>Jobs</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="bi bi-bell-fill"></i>
-                            <span>Notifications</span>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown ms-2">
-                        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="min-width: auto;">
-                            <img src="@avatar" class="rounded-circle" width="32" height="32" style="object-fit: cover;" />
-                            <span class="mt-1">Me</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm mt-2 rounded-3">
-                            <li><a class="dropdown-item py-2 fw-medium" asp-controller="Profile" asp-action="Index"><i class="bi bi-person me-2"></i> View Profile</a></li>
-                            <li><a class="dropdown-item py-2 fw-medium" href="/Settings"><i class="bi bi-gear me-2"></i> Settings</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <form asp-controller="Account" asp-action="Logout" method="post">
-                                    <button type="submit" class="dropdown-item py-2 fw-medium text-danger">
-                                        <i class="bi bi-box-arrow-right me-2"></i> Sign Out
-                                    </button>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-lg-3">
-                <div class="card overflow-hidden sticky-top" style="top: 88px;">
-                    <div class="profile-cover"></div>
-                    <div class="card-body text-center profile-card-body">
-                        <a asp-controller="Profile" asp-action="Index">
-                            <img src="@avatar" class="avatar mb-2">
-                        </a>
-                        <h6 class="profile-name mb-1">@Model.Username</h6>
-                        
-                        <div class="px-2 mt-3 text-start">
-                            <p class="text-muted small mb-2" style="line-height: 1.4;">@bio</p>
-                            <hr class="text-muted opacity-25 my-3">
-                            <div class="d-flex align-items-center mb-2 text-muted small">
-                                @if (isStudent)
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <div class="card sticky-top" style="top: 88px;">
+                        <div class="profile-cover"></div>
+                        <div class="mt-5 card-body text-center pt-0">
+                            <img src="@avatar" class="avatar-sidebar shadow-sm mb-2">
+                            <h6 class="fw-bold mb-0">@Model.Username</h6>
+                            <p class="text-muted small">@bio</p>
+                            <div class="text-start small border-top pt-3">
+                                @if (Model.Profile.isStudent)
                                 {
-                                    <i class="bi bi-mortarboard me-2"></i> <span>Student at @school</span>
+                                    <div class="mb-2">
+                                        <i class="bi bi-mortarboard me-2 text-primary"></i>@school
+                                    </div>
                                 }
                                 else
                                 {
-                                    <i class="bi bi-briefcase me-2"></i> <span>@jobTitle</span>
+                                    <div class="mb-2">
+                                        <i class="bi bi-briefcase me-2 text-primary"></i>@Model.Profile.JobTitle
+                                    </div>
                                 }
-                            </div>
-                            <div class="d-flex align-items-center text-muted small">
-                                <i class="bi bi-geo-alt me-2"></i> <span>@location</span>
+                                <div><i class="bi bi-geo-alt me-2 text-danger"></i>@location</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-lg-6">
-                <div class="card p-3 mb-4">
-                    <div class="d-flex align-items-start gap-3">
-                        <div class="avatar-wrapper">
-                            <img src="@avatar" class="rounded-circle" width="48" height="48" />
-                            <div class="speech-decor">
-                                <span class="bubble-text">Bạn đang nghĩ gì?</span>
-                                <span class="dots"><span>.</span><span>.</span><span>.</span></span>
+                <div class="col-lg-6">
+                    <div class="card p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h6 class="fw-bold mb-0" id="modeIndicator"><i class="bi bi-pencil-square me-2"></i>Mode: Thoughts</h6>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="modeToggle">
+                                <label class="form-check-label small fw-bold" for="modeToggle">Article Mode</label>
                             </div>
                         </div>
-                        <div class="bubble-container">
-                            <input id="postInput" class="form-control post-input-bubble" placeholder="Share your thoughts, @Model.Username...">
-                        </div>
+
+                        <form id="postForm" enctype="multipart/form-data">
+                            <div id="thoughtsMode">
+                                <div class="d-flex align-items-start gap-3">
+                                    <div class="position-relative">
+                                        <img src="@avatar" class="rounded-circle border" width="48" height="48" />
+                                        <div class="speech-decor">Đang nghĩ gì thế?</div>
+                                    </div>
+                                    <div class="flex-grow-1 position-relative">
+                                        <input name="Content" id="postInput" class="form-control rounded-pill bg-light border-0 py-2 px-4" placeholder="What's on your mind?">
+                                        <button type="submit" class="btn text-primary position-absolute end-0 top-50 translate-middle-y me-2"><i class="bi bi-send-fill fs-5"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="articleMode" style="display: none;" class="animate__animated animate__fadeIn">
+                                <div class="article-editor mb-3">
+                                    <input type="text" id="articleTitleInput" name="Title" class="form-control border-0 fw-bold fs-5 mb-2 bg-transparent" placeholder="Article Title...">
+                                    <textarea name="Content" id="articleInput" class="form-control border-0 bg-transparent" rows="5" placeholder="Write your story..."></textarea>
+                                    <div class="media-preview-container d-flex gap-2 flex-wrap" id="mediaPreview"></div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex gap-2">
+                                        <label for="imgUpload" class="media-upload-btn img">
+                                            <i class="bi bi-image"></i> Image
+                                            <input type="file" id="imgUpload" hidden accept="image/*" multiple>
+                                        </label>
+                                        <label for="vidUpload" class="media-upload-btn vid">
+                                            <i class="bi bi-play-btn-fill"></i> Video
+                                            <input type="file" id="vidUpload" hidden accept="video/*">
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary px-4 fw-bold rounded-pill">Publish</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <hr class="text-muted opacity-25 my-3">
-                    <div class="d-flex justify-content-between px-2">
-                        <div class="media-type d-flex gap-2">
-                            <div class="d-flex align-items-center px-2 py-1 rounded" style="cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background='transparent'">
-                                <i class="images-type bi bi-image text-success me-2 fs-5"></i>
-                                <span class="small fw-semibold text-muted">Photo</span>
+                    <div id="newsFeed">
+                        @if (ViewBag.Posts != null)
+                        {
+                            foreach (var post in ViewBag.Posts)
+                            {
+                                <div class="post-card p-3 animate__animated animate__fadeInUp">
+                                    <div class="post-header d-flex align-items-center justify-content-between mb-3">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="@(post.User?.Profile?.AvatarUrl ?? "/images/default-avatar.png")" class="rounded-circle border" width="42" height="42">
+                                            <div>
+                                                <div class="fw-bold mb-0">
+                                                    @post.User.Username
+                                                    @if (!string.IsNullOrEmpty(post.Title))
+                                                    {
+                                                        <span class="badge-article ms-2">Article</span>
+                                                    }
+                                                </div>
+                                                <div class="text-muted small">@post.CreatedAt.ToString("dd/MM/yyyy HH:mm")</div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-link text-muted p-0 border-0 btn-delete-post" data-post-id="@post.Id">
+                                            <i class="bi bi-x-lg"></i>
+                                        </button>
+                                    </div>
+                                    <div class="post-content">
+                                        @if (!string.IsNullOrEmpty(post.Title))
+                                        {
+                                            <h5 class="fw-bold">@post.Title</h5>
+                                        }
+                                        <p>@post.Content</p>
+                                    </div>
+                                    <div class="post-actions d-flex">
+                                        <button class="action-btn"><i class="bi bi-hand-thumbs-up me-2"></i>Like</button>
+                                        <button class="action-btn"><i class="bi bi-chat-text me-2"></i>Comment</button>
+                                        <button class="action-btn"><i class="bi bi-share me-2"></i>Share</button>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="text-center py-5 text-muted">
+                                <i class="bi bi- mailbox fs-1"></i>
+                                <p>Chưa có bài đăng nào. Hãy là người đầu tiên!</p>
                             </div>
-                            <div class="d-flex align-items-center px-2 py-1 rounded" style="cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background='transparent'">
-                                <i class="cameras-type bi bi-camera-video-fill text-primary me-2 fs-5"></i>
-                                <span class="small fw-semibold text-muted">Video</span>
-                            </div>
-                        </div>
-                        <button class="btn btn-primary btn-modern px-4 py-1">Post</button>
+                        }
                     </div>
                 </div>
 
-                <div class="card p-4 mb-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <img src="https://i.pravatar.cc/40?img=3" class="rounded-circle me-3" width="48" height="48">
-                        <div>
-                            <h6 class="mb-0 fw-bold">Alex Johnson</h6>
-                            <small class="text-muted">Senior Developer at TechNova • 2h</small>
+                <div class="col-lg-3">
+                    <div class="sticky-top" style="top: 88px;">
+
+                        <div class="card p-3 mb-3">
+                            <h6 class="fw-bold mb-3">People you may know</h6>
+
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <img src="/images/default-avatar.png" class="rounded-circle border" width="40" height="40" style="object-fit: cover;">
+                                    <div>
+                                        <div class="fw-bold small">Nguyễn Văn A</div>
+                                        <div class="text-muted" style="font-size: 11px;">Hàng Hải University</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline-primary btn-sm rounded-pill fw-bold" style="font-size: 11px;">Connect</button>
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <img src="/images/default-avatar.png" class="rounded-circle border" width="40" height="40" style="object-fit: cover;">
+                                    <div>
+                                        <div class="fw-bold small">Trần Thị B</div>
+                                        <div class="text-muted" style="font-size: 11px;">Software Engineer</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline-primary btn-sm rounded-pill fw-bold" style="font-size: 11px;">Connect</button>
+                            </div>
+
+                            <a href="#" class="text-decoration-none small fw-bold text-secondary">View all recommendations</a>
                         </div>
-                        <i class="bi bi-three-dots ms-auto text-muted" style="cursor: pointer;"></i>
-                    </div>
-                    <p class="mb-3" style="line-height: 1.6;">Working on a new AI integration project today. Excited to share the architecture updates with the community soon! 🚀 #AI #TechBuild</p>
-                    <hr class="text-muted opacity-25 my-2">
-                    <div class="d-flex justify-content-between mt-1">
-                        <button class="btn btn-light btn-action flex-grow-1 mx-1"><i class="bi bi-hand-thumbs-up me-1"></i> Like</button>
-                        <button class="btn btn-light btn-action flex-grow-1 mx-1"><i class="bi bi-chat-text me-1"></i> Comment</button>
-                        <button class="btn btn-light btn-action flex-grow-1 mx-1"><i class="bi bi-share me-1"></i> Share</button>
+
+                        <div class="card p-3">
+                            <h6 class="fw-bold mb-3">Companies to follow</h6>
+
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <img src="https://img.logo.dev/viettel.com.vn?token=pk_your_token"
+                                         class="company-logo border"
+                                         onerror="this.src='https://ui-avatars.com/api/?name=Viettel&background=ed1c24&color=fff'">
+                                    <div>
+                                        <div class="fw-bold small">Viettel Group</div>
+                                        <div class="text-muted" style="font-size: 11px;">Telecommunications</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-follow">+ Follow</button>
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <img src="https://img.logo.dev/vng.com.vn?token=pk_your_token"
+                                         class="company-logo border"
+                                         onerror="this.src='https://ui-avatars.com/api/?name=VNG&background=00aeee&color=fff'">
+                                    <div>
+                                        <div class="fw-bold small">VNG Corporation</div>
+                                        <div class="text-muted" style="font-size: 11px;">Tech & Gaming</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-follow">+ Follow</button>
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center gap-2">
+                                    <img src="https://img.logo.dev/vinfastauto.com?token=pk_your_token"
+                                         class="company-logo border"
+                                         onerror="this.src='https://ui-avatars.com/api/?name=VinFast&background=333&color=fff'">
+                                    <div>
+                                        <div class="fw-bold small">VinFast</div>
+                                        <div class="text-muted" style="font-size: 11px;">Automotive</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-follow">+ Follow</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            </div>
+        </div>
 
-            <div class="col-lg-3 sidebar-right">
-                <div class="card p-4 mb-4 sticky-top" style="top: 88px;">
-                    <h6 class="right-title mb-3">AI Recommended Jobs</h6>
-                    <div class="job-item d-flex justify-content-between align-items-center">
-                        <div>
-                            <div class="fw-bold fs-6">Product Manager</div>
-                            <div class="text-muted small"><i class="bi bi-building me-1"></i>Brain Company</div>
-                        </div>
-                        <button class="btn btn-outline-primary btn-modern rounded-pill">Apply</button>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // --- 1. KHAI BÁO CÁC BIẾN ---
+                const modeToggle = document.getElementById("modeToggle");
+                const thoughtsMode = document.getElementById("thoughtsMode");
+                const articleMode = document.getElementById("articleMode");
+                const modeIndicator = document.getElementById("modeIndicator");
+                const thoughtsInput = document.getElementById("postInput");
+                const bubble = document.querySelector(".speech-decor");
+                const newsFeed = document.getElementById("newsFeed");
+                const postForm = document.getElementById("postForm");
+
+                // Khởi tạo Modal (Cần bootstrap.bundle.min.js ở trên)
+                const deleteModalElem = document.getElementById('deletePostModal');
+                const deleteModal = new bootstrap.Modal(deleteModalElem);
+                let postIdToDelete = null;
+                let postCardToDelete = null;
+
+                            const samplePosts = [
+                    {
+                        id: 1,
+                        author: "Nguyễn Văn A",
+                        avatar: "/images/default-avatar.png",
+                        content: "Hôm nay mình vừa học xong ASP.NET Core 😎",
+                        time: "Just now"
+                    },
+                    {
+                        id: 2,
+                        author: "Trần Dev",
+                        avatar: "/images/default-avatar.png",
+                        title: "Tips học lập trình",
+                        content: "Đừng học syntax. Hãy build project 🚀",
+                        isArticle: true,
+                        time: "5 phút trước"
+                    },
+                    {
+                        id: 3,
+                        author: "UI Designer",
+                        avatar: "/images/default-avatar.png",
+                        content: "Design đẹp = spacing + consistency ✨",
+                        time: "10 phút trước"
+                    }
+                ];
+
+                samplePosts.forEach(post => {
+                    const html = createPostHTML(post);
+                    newsFeed.insertAdjacentHTML('beforeend', html);
+                });
+
+                // --- 2. CÁC HÀM HỖ TRỢ ---
+                function createPostHTML(post) {
+                    return `
+                        <div class="post-card p-3 animate__animated animate__fadeInUp" id="post-${post.id}">
+                            <div class="post-header d-flex align-items-center justify-content-between mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <img src="${post.avatar || '/images/default-avatar.png'}" class="rounded-circle border" width="42" height="42">
+                                    <div>
+                                        <div class="fw-bold mb-0">${post.author || post.username} ${post.isArticle ? '<span class="badge-article ms-2">Article</span>' : ''}</div>
+                                        <div class="text-muted small">${post.time || 'Just now'}</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-link text-muted p-0 border-0 btn-delete-post" data-post-id="${post.id}">
+                                    <i class="bi bi-x-lg"></i>
+                                </button>
+                            </div>
+                            <div class="post-content">
+                                ${post.title ? `<h5 class="fw-bold">${post.title}</h5>` : ''}
+                                <p>${post.content}</p>
+                            </div>
+                            <div class="post-actions d-flex">
+                                <button class="action-btn"><i class="bi bi-hand-thumbs-up me-2"></i>Like</button>
+                                <button class="action-btn"><i class="bi bi-chat-text me-2"></i>Comment</button>
+                                <button class="action-btn"><i class="bi bi-share me-2"></i>Share</button>
+                            </div>
+                        </div>`;
+                }
+
+                // --- 3. LOGIC GIAO DIỆN (MODE & BUBBLE) ---
+                 modeToggle.addEventListener("change", () => {
+                    const isArticle = modeToggle.checked;
+                    thoughtsMode.style.display = isArticle ? "none" : "block";
+                    articleMode.style.display = isArticle ? "block" : "none";
+                    modeIndicator.innerHTML = isArticle
+                        ? '<i class="bi bi-journal-text me-2"></i>Mode: Article'
+                        : '<i class="bi bi-pencil-square me-2"></i>Mode: Thoughts';
+                });
+
+                           // --- LOGIC BUBBLE NÂNG CAO ---
+                const toggleBubble = () => {
+                    const isFocused = document.activeElement === thoughtsInput;
+                    const hasValue = thoughtsInput.value.length > 0;
+
+                    if (isFocused || hasValue) {
+                        bubble.classList.add("show");
+
+                        if (hasValue) {
+                            // Khi đang nhập nội dung
+                            bubble.innerHTML = `Đang lên những ý tưởng tuyệt vời<span class="typing-dots"><span></span><span></span><span></span></span>`;
+                        } else {
+                            bubble.innerText = "Bạn đang nghĩ gì thế?";
+                        }
+                    } else {
+                        bubble.classList.remove("show");
+                    }
+                };
+
+                thoughtsInput.addEventListener("focus", toggleBubble);
+                thoughtsInput.addEventListener("input", toggleBubble);
+                thoughtsInput.addEventListener("blur", () => {
+                    setTimeout(toggleBubble, 100);
+                });
+
+                // --- 4. XỬ LÝ GỬI BÀI VIẾT ---
+                postForm.addEventListener("submit", async function (e) {
+                    e.preventDefault();
+                    const isArticle = modeToggle.checked;
+                    const content = isArticle ? document.getElementById("articleInput").value.trim() : thoughtsInput.value.trim();
+                    const title = isArticle ? document.getElementById("articleTitleInput").value.trim() : "";
+
+                    if (!content) return;
+
+                    const formData = new FormData();
+                    formData.append("content", content);
+                    if (isArticle) formData.append("title", title);
+
+                    try {
+                        const response = await fetch('/Dashboard/CreatePost', { method: 'POST', body: formData });
+                        const result = await response.json();
+
+                        if (result.success) {
+                            const newHTML = createPostHTML({
+                                ...result.data,
+                                isArticle: isArticle,
+                            });
+                            newsFeed.insertAdjacentHTML('afterbegin', newHTML);
+                            postForm.reset();
+                            bubble.classList.remove("show");
+                            if (isArticle) modeToggle.click();
+                        } else {
+                            alert(result.message);
+                        }
+                    } catch (err) { alert("Lỗi kết nối server."); }
+                });
+
+                // --- 5. XỬ LÝ XÓA BÀI (MODAL) ---
+                // Lắng nghe sự kiện click trên toàn bộ newsFeed (cho cả bài mới tạo)
+                newsFeed.addEventListener("click", function (e) {
+                    const deleteBtn = e.target.closest(".btn-delete-post");
+                    if (!deleteBtn) return;
+
+                    postIdToDelete = deleteBtn.getAttribute("data-post-id");
+                    postCardToDelete = deleteBtn.closest(".post-card");
+
+                    deleteModal.show();
+                });
+
+                // Nút xác nhận xóa trong Modal
+                document.getElementById("confirmDeleteBtn").addEventListener("click", async function () {
+                    if (!postIdToDelete) return;
+
+                    try {
+                        const response = await fetch(`/Dashboard/DeletePost?id=${postIdToDelete}`, {
+                            method: 'DELETE'
+                        });
+                        const result = await response.json();
+
+                        if (result.success) {
+                            deleteModal.hide();
+                            postCardToDelete.classList.add("animate__animated", "animate__fadeOutDown");
+                            setTimeout(() => {
+                                postCardToDelete.remove();
+                                postIdToDelete = null;
+                                postCardToDelete = null;
+                            }, 500);
+                        } else {
+                            alert("Lỗi: " + result.message);
+                        }
+                    } catch (err) {
+                        alert("Không thể kết nối đến server.");
+                    }
+                });
+            });
+        </script>
+        <div class="modal fade" id="deletePostModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content border-0 shadow-lg" style="border-radius: 16px;">
+                    <div class="modal-header border-0 pb-0">
+                        <h5 class="modal-title fw-bold">Xác nhận xóa</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <div class="modal-body py-3">
+                        Bạn có chắc chắn muốn xóa bài viết này không? Hành động này không thể hoàn tác.
                     </div>
-
-                <div class="card p-4 mb-4">
-                    <h6 class="right-title mb-3">Add to your feed</h6>
-
-                    <div class="d-flex align-items-start mb-3">
-                        <img src="https://i.pravatar.cc/40?img=1" class="rounded-circle me-3" width="48" height="48">
-                        <div class="flex-grow-1">
-                            <div class="fw-bold fs-6">Jean Smith</div>
-                            @* Dùng @@ để thoát lỗi Razor *@
-                            <div class="text-muted small mb-2">UX/UI Designer @@Designify</div>
-                            <button class="btn btn-outline-secondary btn-modern rounded-pill btn-sm w-100"><i class="bi bi-plus"></i> Follow</button>
-                        </div>
-                    </div>
-
-                    <div class="d-flex align-items-start mb-2">
-                        <img src="https://i.pravatar.cc/40?img=2" class="rounded-circle me-3" width="48" height="48">
-                        <div class="flex-grow-1">
-                            <div class="fw-bold fs-6">Jean Antors</div>
-                            @* Dùng @@ để thoát lỗi Razor *@
-                            <div class="text-muted small mb-2">Frontend Lead @@WebWorks</div>
-                            <button class="btn btn-outline-secondary btn-modern rounded-pill btn-sm w-100"><i class="bi bi-plus"></i> Follow</button>
-                        </div>
+                    <div class="modal-footer border-0 pt-0">
+                        <button type="button" class="btn btn-light rounded-pill px-4 fw-medium" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" id="confirmDeleteBtn" class="btn btn-danger rounded-pill px-4 fw-bold">Xóa bài</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="footer">
-        <span class="me-3">© 2026 Aris Platform</span>
-        <a href="#" class="text-muted text-decoration-none me-3">About</a>
-        <a href="#" class="text-muted text-decoration-none">Privacy & Terms</a>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const input = document.getElementById("postInput");
-        const bubble = document.querySelector(".speech-decor");
-        const text = bubble.querySelector(".bubble-text");
-        const dots = bubble.querySelector(".dots");
-
-        const defaultText = "Bạn đang nghĩ gì?";
-        const typingText = "Đang lên ý tưởng";
-
-        input.addEventListener("focus", () => {
-            bubble.classList.add("show");
-        });
-
-        input.addEventListener("input", () => {
-            if (input.value.length > 0) {
-                text.textContent = typingText;
-                dots.style.display = "inline-block";
-                bubble.classList.add("typing");
-            } else {
-                text.textContent = defaultText;
-                dots.style.display = "none";
-                bubble.classList.remove("typing");
-            }
-        });
-
-        input.addEventListener("blur", () => {
-            if (input.value.length === 0) {
-                bubble.classList.remove("show");
-            }
-        });
-    </script>
-</body>
-</html>
+    </body>
+    </html>

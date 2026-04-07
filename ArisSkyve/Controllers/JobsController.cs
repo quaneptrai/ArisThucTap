@@ -42,6 +42,7 @@ using System.Text.Json;
         var model = new JobsIndexViewModel
         {
             User = user,
+            Profile = user.Profile,
             JobPostings = jobs
         };
 
@@ -89,5 +90,6 @@ using System.Text.Json;
     public class JobsIndexViewModel
     {
         public ArisSkyve.Domain.Entities.User User { get; set; } = default!;
-        public List<ArisSkyve.Domain.Entities.JobPosting> JobPostings { get; set; } = new List<ArisSkyve.Domain.Entities.JobPosting>();
+        public ArisSkyve.Domain.Entities.EmployesAccount Profile { get; set; } = default!;
+    public List<ArisSkyve.Domain.Entities.JobPosting> JobPostings { get; set; } = new List<ArisSkyve.Domain.Entities.JobPosting>();
     }

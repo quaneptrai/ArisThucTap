@@ -8,7 +8,7 @@ namespace ArisSkyve.Domain.Entities
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Title { get; set; } = string.Empty;
+        public string? Title { get; set; } 
         public string Content { get; set; } = string.Empty;
         public bool IsPublic { get; set; } = true;
         public List<Comment> Comments { get; set; }

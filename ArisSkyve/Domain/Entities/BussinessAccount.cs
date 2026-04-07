@@ -4,7 +4,7 @@ namespace ArisSkyve.Domain.Entities
 {
     public class BussinessAccount : EmployesAccount
     {
-        [Required]
+        [Required(ErrorMessage = "Tên công ty không được để trống")]
         public string CompanyName { get; set; } = string.Empty;
 
         public string? CompanyAddress { get; set; }
@@ -12,5 +12,15 @@ namespace ArisSkyve.Domain.Entities
         public string? Industry { get; set; }
 
         public string? Description { get; set; }
+
+        public string? WebsiteUrl { get; set; }
+
+        public string? CompanySize { get; set; } 
+
+        public string? TaxCode { get; set; } 
+
+        public int? FoundedYear { get; set; }
+
+        public bool IsVerified { get; set; } = false; // Tích xanh xác minh doanh nghiệp
     }
 }
