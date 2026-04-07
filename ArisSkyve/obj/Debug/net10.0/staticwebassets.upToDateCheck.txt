@@ -65,7 +65,6 @@ wwwroot\lib\jquery\LICENSE.txt
 wwwroot\uploads\avatars\Arisu.png
 D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\css\Dashboard.css
 D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\css\site.css
-D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\favicon.ico
 D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\js\site.js
 D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -126,3 +125,4 @@ D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\lib\jquery\dist\jquery.slim.js
 D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\lib\jquery\dist\jquery.slim.min.js
 D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\lib\jquery\dist\jquery.slim.min.map
 D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\lib\jquery\LICENSE.txt
+D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\favicon.ico
