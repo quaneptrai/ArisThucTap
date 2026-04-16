@@ -3,6 +3,13 @@
     Layout = null;
     var profile = Model.Profile;
 
+   
+    var hasResume = profile?.Resumes != null && profile.Resumes.Any();
+    var latestResume = hasResume ? profile.Resumes.OrderByDescending(r => r.LastUpdatedAt).First() : null;
+
+    var resumeBtnText = hasResume ? "Cập nhật hồ sơ AI" : "Tải lên CV (AI Scan)";
+    var resumeBtnIcon = hasResume ? "bi-arrow-repeat" : "bi-cloud-arrow-up";
+
     var fullName = !string.IsNullOrEmpty(profile?.FullName) ? profile.FullName : Model.Username;
     var avatar = !string.IsNullOrEmpty(profile?.AvatarUrl) ? profile.AvatarUrl : "/images/default-avatar.png";
     var cover = !string.IsNullOrEmpty(profile?.CoverPhotoUrl) ? profile.CoverPhotoUrl : "https://images.unsplash.com/photo-1579546929518-9e396f3cc809";
@@ -295,7 +302,45 @@
                         }
                     </div>
                 </div>
+                <div class="card-aris p-4 mb-4 border-primary border-opacity-25 shadow-sm">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="fw-bold mb-0">Hồ sơ năng lực AI</h6>
+                        @if (hasResume)
+                        {
+                            <span class="badge bg-success-subtle text-success rounded-pill" style="font-size: 10px;">Đã phân tích</span>
+                        }
+                    </div>
 
+                    @if (hasResume)
+                    {
+                        <div class="p-3 rounded-4 mb-3" style="background: var(--aris-primary-soft);">
+                            <div class="small fw-bold mb-1 text-truncate text-primary">
+                                <i class="bi bi-stars me-1"></i> @latestResume.Category
+                            </div>
+                            <div class="text-muted" style="font-size: 11px;">
+                                <i class="bi bi-clock-history me-1"></i> Khớp lệnh: @latestResume.LastUpdatedAt.ToString("dd/MM/yyyy HH:mm")
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="small text-muted mb-3" style="font-size: 12px;">Hãy tải lên CV để AI phân tích kỹ năng và tự động gợi ý việc làm phù hợp.</p>
+                    }
+
+                    <button class="btn btn-primary-aris w-100 py-2 shadow-sm" onclick="document.getElementById('cvFileInput').click()">
+                        <i class="bi @resumeBtnIcon me-2"></i> @resumeBtnText
+                    </button>
+
+                    <input type="file" id="cvFileInput" accept=".pdf,.doc,.docx" class="d-none" onchange="uploadCV(this)">
+
+                    <div id="cvUploadStatus" class="d-none mt-3">
+                        <div class="d-flex align-items-center justify-content-center p-2 rounded-3 bg-light border">
+                            <div id="cvSpinner" class="spinner-border spinner-border-sm text-primary me-2"></div>
+                            <i id="cvSuccessIcon" class="bi bi-check-circle-fill text-success me-2 d-none"></i>
+                            <span class="small fw-600 text-primary" id="statusText">AI đang đọc CV...</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-aris p-4">
                     <h6 class="fw-bold mb-3">Kỹ năng nổi bật</h6>
                     <div class="d-flex flex-wrap gap-2">
@@ -313,7 +358,7 @@
                     <div class="d-flex gap-3">
                         <img src="@avatar" class="rounded-circle" width="50" height="50" style="object-fit: cover;">
                         <div class="form-control form-control-aris flex-grow-1 text-muted fw-medium d-flex align-items-center" style="cursor: text; min-height: 50px;" data-bs-toggle="modal" data-bs-target="#createPostModal">
-                            Bạn đang nghĩ gì, @(profile?.FullName.Split(' ')[0] ?? Model.Username)?
+                            Bạn đang nghĩ gì, @((profile?.FullName ?? Model.Username).Split(' ')[0])?
                         </div>
                     </div>
                     <div class="d-flex justify-content-between mt-3 pt-3 border-top">
@@ -488,7 +533,78 @@
                 }
                 type();
             }
+                    window.uploadCV = async function (input) {
+            if (!input.files || input.files.length === 0) return;
 
+            const file = input.files[0];
+            const statusDiv = document.getElementById('cvUploadStatus');
+            const statusText = document.getElementById('statusText');
+            const spinner = document.getElementById('cvSpinner');
+            const successIcon = document.getElementById('cvSuccessIcon');
+
+            const btn = document.querySelector('button[onclick*="uploadCV"]');
+
+            let response = null;
+
+            // RESET UI → LOADING STATE
+            statusDiv.classList.remove('d-none');
+            spinner.classList.remove('d-none');
+            successIcon.classList.add('d-none');
+            statusText.innerText = "AI đang phân tích CV...";
+            btn.disabled = true;
+            btn.innerHTML = `<span class="spinner-border spinner-border-sm me-2"></span>Đang xử lý...`;
+
+            const formData = new FormData();
+            formData.append('employee_id', '@(profile?.Id ?? 0)');
+            formData.append('file', file);
+            formData.append('model', 'bge-m3');
+
+            try {
+                response = await fetch('http://localhost:8001/process-cv-full', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.detail || "Không thể phân tích CV");
+                }
+
+                const result = await response.json();
+
+                // SUCCESS STATE
+                spinner.classList.add('d-none');
+                successIcon.classList.remove('d-none');
+                statusText.innerText = "Phân tích hoàn tất!";
+
+                btn.innerHTML = `<i class="bi bi-check-circle-fill me-2"></i>Đã cập nhật CV`;
+
+                // toast nhẹ thay vì alert (UX tốt hơn)
+                setTimeout(() => {
+                    alert(`AI đã nhận diện bạn là: ${result.category}`);
+                    location.reload();
+                }, 500);
+
+            } catch (err) {
+                console.error(err);
+
+                statusText.innerText = "Phân tích thất bại!";
+                spinner.classList.add('d-none');
+                successIcon.classList.add('d-none');
+
+                btn.innerHTML = `<i class="bi bi-cloud-arrow-up me-2"></i>Tải lại CV`;
+
+                alert("Lỗi: " + err.message);
+
+                // fallback UI reset
+                setTimeout(() => {
+                    statusDiv.classList.add('d-none');
+                }, 2000);
+
+            } finally {
+                btn.disabled = false;
+            }
+        }
             btnSaveBio.addEventListener("click", async () => {
                 const newBio = bioInput.value.trim();
 

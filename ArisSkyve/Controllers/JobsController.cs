@@ -105,9 +105,9 @@ namespace ArisSkyve.Controllers
                 {
                     // Gửi topK lớn hơn để AI gợi ý thêm những cái mới
                     var nvc = new List<KeyValuePair<string, string>> {
-                new("employee_id", profile.Id.ToString()),
-                new("top_k", topK.ToString())
-            };
+                        new("employee_id", profile.Id.ToString()),
+                        new("top_k", topK.ToString())
+                        };
 
                     var response = await client.PostAsync("http://127.0.0.1:8001/recommend-jobs-for-employee", new FormUrlEncodedContent(nvc));
 
@@ -167,5 +167,6 @@ namespace ArisSkyve.Controllers
 
             return PartialView("_JobCardPartial", jobs);
         }
-    }
-}
+        
+     }
+ }

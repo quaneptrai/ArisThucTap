@@ -4,17 +4,21 @@ namespace ArisSkyve.Application.DTOs
 {
     public class JobRecommendationDTO
     {
-        [JsonPropertyName("id")]
         public int Id { get; set; }
 
-        [JsonPropertyName("job")]
+        [JsonPropertyName("job_title")]
         public string JobTitle { get; set; }
 
         [JsonPropertyName("company")]
-        public string Company { get; set; }
+        public string Company { get; set; }   
 
-        [JsonPropertyName("score")]
+        [JsonPropertyName("final_score")]
         public double Score { get; set; }
-        public string Reason { get; set; } = string.Empty;
+
+        [JsonPropertyName("reason")]
+        public string Reason { get; set; }
+
+        [JsonPropertyName("advice")]
+        public string Advice { get; set; }
     }
 }

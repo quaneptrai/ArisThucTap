@@ -57,9 +57,19 @@
                            class="btn btn-outline-primary btn-sm rounded-pill px-4 fw-bold">
                             Chi tiết
                         </a>
-                        <button class="btn btn-primary btn-sm rounded-pill px-4 fw-bold">
-                            Ứng tuyển
-                        </button>
+                        @if (ViewContext.ViewData["UserRole"]?.ToString() != "Employee")
+                        {
+                            <button class="btn btn-primary btn-sm rounded-pill px-4 fw-bold">
+                               Ứng tuyển
+                            </button>
+                        }
+                        else
+                        {
+                            @* Tùy chọn: Hiển thị một nút màu xám hoặc thông báo nhỏ nếu muốn *@
+                            <button class="btn btn-secondary btn-sm rounded-pill px-4 fw-bold" disabled title="Tài khoản doanh nghiệp không thể ứng tuyển">
+                                Quản lý
+                            </button>
+                        }
                     </div>
                 </div>
             </div>

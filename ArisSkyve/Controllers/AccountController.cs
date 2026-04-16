@@ -13,7 +13,7 @@ using System.Security.Claims;
 
 namespace ArisSkyve.Controllers
 {
-    public class AccountController:Controller
+    public class AccountController : Controller
     {
         public ArisDBContext _context;
         public AccountController(ArisDBContext context)
@@ -35,7 +35,7 @@ namespace ArisSkyve.Controllers
             if (user == null) return NotFound();
 
             ViewBag.UserId = user.Id;
-            ViewBag.Username = user.Username; 
+            ViewBag.Username = user.Username;
 
             var dto = new NewUserInforDTO
             {
@@ -132,7 +132,7 @@ namespace ArisSkyve.Controllers
             var user = _context.Users
                 .Include(u => u.Profile)
                 .FirstOrDefault(u => u.Email == login.Email);
-            
+
             if (user == null)
             {
                 ModelState.AddModelError("Email", "Email không tồn tại");
@@ -164,6 +164,7 @@ namespace ArisSkyve.Controllers
             });
             return RedirectToAction("Index", "Dashboard", new { userId = user.Id });
         }
+
         [HttpPost]
         public async Task<IActionResult> Register(User model)
         {
@@ -317,6 +318,70 @@ namespace ArisSkyve.Controllers
             return RedirectToAction("Index", "Dashboard", new { userId = user.Id });
 
         }
+        [HttpPost]
+        public async Task<IActionResult> UpgradeToBusiness(BussinessAccount model)
+        {
+            // 1. Lấy ID của User (Lưu ý: Id trong DB của bạn là int)
+            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            if (!int.TryParse(userIdClaim, out int userId))
+            {
+                return Json(new { success = false, message = "Phiên đăng nhập không hợp lệ." });
+            }
 
+            // 2. Load User kèm theo Profile hiện tại
+            var user = await _context.Users
+                .Include(u => u.Profile)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (user == null) return Json(new { success = false, message = "Không tìm thấy người dùng." });
+
+            try
+            {
+                // 3. Cập nhật Role cho User
+                user.Role = "Business";
+
+                // 4. Nếu đã có Profile (Employee), ta sẽ chuyển đổi nó
+                // Lưu ý: Trong Entity Framework, ta không thể đổi Type của một Row. 
+                // Cách tốt nhất là tạo mới một Business Profile và copy dữ liệu cũ sang.
+
+                var oldProfile = user.Profile;
+
+                var newBusinessProfile = new BussinessAccount
+                {
+                    // Giữ lại thông tin cá nhân cũ
+                    FullName = oldProfile?.FullName ?? user.Username,
+                    Location = oldProfile?.Location ?? "Chưa cập nhật",
+                    AvatarUrl = oldProfile?.AvatarUrl,
+                    UserId = user.Id,
+
+                    // Cập nhật thông tin doanh nghiệp mới từ Form
+                    CompanyName = model.CompanyName,
+                    Industry = model.Industry,
+                    TaxCode = model.TaxCode,
+                    FoundedYear = model.FoundedYear,
+                    CompanySize = model.CompanySize,
+                    WebsiteUrl = model.WebsiteUrl,
+                    CompanyAddress = model.CompanyAddress,
+                    Description = model.Description,
+                    IsVerified = false
+                };
+
+                // 5. Xóa Profile cũ và gán Profile mới
+                if (oldProfile != null)
+                {
+                    _context.Profiles.Remove(oldProfile);
+                }
+
+                user.Profile = newBusinessProfile;
+
+                await _context.SaveChangesAsync();
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Lỗi hệ thống: " + ex.Message });
+            }
+
+        }
     }
 }

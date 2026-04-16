@@ -35,13 +35,16 @@
           }
         },
         "warningProperties": {
+          "noWarn": [
+            "NU1901"
+          ],
           "warnAsError": [
             "NU1605"
           ]
         },
         "restoreAuditProperties": {
           "enableAudit": "true",
-          "auditLevel": "low",
+          "auditLevel": "moderate",
           "auditMode": "all"
         },
         "SdkAnalysisLevel": "10.0.100"

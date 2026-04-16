@@ -28,6 +28,8 @@ namespace ArisSkyve.Domain.Entities
         public string Experience { get; set; } = string.Empty;
 
         public DateTime? Deadline { get; set; }
+        public string Category { get; set; } = string.Empty;
+        public string Hashtags { get; set; } = "[]";
 
         public string LocationTags { get; set; } = "[]";
 

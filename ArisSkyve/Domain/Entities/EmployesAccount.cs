@@ -23,5 +23,6 @@ namespace ArisSkyve.Domain.Entities
         public string? ResumeUrl { get; set; }
         public ICollection<ContactMethod> ContactMethods { get; set; } = new List<ContactMethod>();
         public Education? Education { get; set; }
+        public virtual ICollection<Resume> Resumes { get; set; } = new List<Resume>();
     }
 }

@@ -19,10 +19,13 @@ namespace ArisSkyve.Controllers
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             var user = _context.Users
-                .Include(u => u.Profile)
+            .Include(u => u.Profile)
                 .ThenInclude(p => p.ContactMethods)
-                .Include(u => u.Profile.Education)
-                .FirstOrDefault(u => u.Id == int.Parse(userId));
+            .Include(u => u.Profile)
+                .ThenInclude(p => p.Education)
+            .Include(u => u.Profile)
+                .ThenInclude(p => p.Resumes)
+            .FirstOrDefault(u => u.Id == int.Parse(userId));
             return View(user);
         }
         [HttpPost]
