@@ -1,0 +1,76 @@
+﻿@model List<ArisSkyve.Application.DTOs.JobRecommendationDTO>
+
+@if (Model != null && Model.Any())
+{
+    @foreach (var item in Model)
+    {
+        <div class="card ai-recommend-card p-3 mb-3 shadow-sm border-0">
+            <div class="d-flex justify-content-between align-items-start">
+                <div class="d-flex gap-3">
+                    <div class="company-logo-wrapper border bg-light flex-shrink-0" style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 10px;">
+                        <img src="https://ui-avatars.com/api/?name=@(item.JobTitle)&background=random&color=fff"
+                             alt="Logo" class="img-fluid p-2 rounded-3">
+                    </div>
+                    <div>
+                        <a asp-controller="Jobs" asp-action="Details" asp-route-id="@item.Id" class="text-decoration-none">
+                            <h6 class="job-title-link fw-bold mb-1 text-dark">@item.JobTitle</h6>
+                        </a>
+
+                        <p class="small text-muted mb-1">@item.Company</p>
+
+                        <span class="match-score-badge">
+                            <i class="bi bi-lightning-charge-fill"></i> @(Math.Round(item.Score, 1))% Match
+                        </span>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <a asp-controller="Jobs" asp-action="Details" asp-route-id="@item.Id"
+                       class="btn btn-sm btn-outline-primary rounded-pill px-4 fw-bold">
+                        Chi tiết
+                    </a>
+                </div>
+            </div>
+
+            <div class="ai-reason-box mt-3 p-2 rounded-3" style="background-color: #f8f9ff; border-left: 3px solid #0d6efd;">
+                <p class="small mb-0 text-dark">
+                    <i class="bi bi-stars text-primary me-2"></i>
+                    <strong>AI Insight:</strong> @item.Reason
+                </p>
+            </div>
+        </div>
+    }
+}
+
+<style>
+    /* Match score badge style */
+    .match-score-badge {
+        font-weight: 700;
+        color: #2563eb;
+        background: #eff6ff;
+        padding: 4px 12px;
+        border-radius: 8px;
+        font-size: 12px;
+        display: inline-block;
+    }
+
+    /* Hiệu ứng hover giống Job Card */
+    .job-title-link {
+        transition: color 0.2s ease;
+        cursor: pointer;
+    }
+
+        .job-title-link:hover {
+            color: #2563eb !important;
+            text-decoration: underline;
+        }
+
+    .ai-recommend-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .ai-recommend-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06) !important;
+        }
+</style>

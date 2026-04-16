@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aris Jobs | Discover Opportunities</title>
+    <title>Aris</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -278,6 +278,47 @@
             padding: 12px;
             border: 1px solid #e5e7eb;
         }
+        /* Card gợi ý đặc biệt */
+        .ai-recommend-card {
+            border: 1px solid transparent;
+            background: linear-gradient(white, white) padding-box, linear-gradient(135deg, #6366f1, #a855f7) border-box; /* Viền gradient */
+            position: relative;
+            overflow: hidden;
+        }
+
+            .ai-recommend-card::before {
+                content: "AI MATCH";
+                position: absolute;
+                top: 10px;
+                right: -25px;
+                background: #8b5cf6;
+                color: white;
+                font-size: 9px;
+                font-weight: 800;
+                padding: 2px 30px;
+                transform: rotate(45deg);
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+
+        .match-score-badge {
+            background: rgba(139, 92, 246, 0.1);
+            color: #7c3aed;
+            font-weight: 700;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .ai-reason-box {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 10px 14px;
+            margin-top: 12px;
+            border-left: 3px solid #8b5cf6;
+        }
     </style>
 </head>
 <body>
@@ -343,6 +384,27 @@
             </div>
 
             <div class="col-lg-6">
+                <div id="ai-recommendation-section" class="mb-5">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="bi bi-stars text-primary fs-4"></i>
+                        <h5 class="fw-bold mb-0">Recommended For You</h5>
+                    </div>
+
+                    <div id="ai-content-area">
+                        <div class="card p-4 border-0 shadow-sm text-center mb-4" style="background: #f8faff; border: 1px dashed #6366f1 !important;">
+                            <div class="spinner-border text-primary mb-3" role="status"></div>
+                            <h6 class="fw-bold text-primary">Aris đang kiểm tra thông tin của bạn nè :3 ...</h6>
+                            <p class="small text-muted mb-0">Finding the best matches for your skills</p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button id="load-more-ai" class="btn btn-outline-primary btn-sm" style="display:none;">
+                            Xem thêm gợi ý AI
+                        </button>
+                    </div>
+                    <hr class="my-4" style="border-style: dashed; opacity: 0.3;">
+                </div>
+
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5 class="fw-bold mb-0">Top Job Picks</h5>
                     <div class="dropdown">
@@ -353,7 +415,6 @@
                             <li><a class="dropdown-item active" href="#">Newest</a></li>
                             <li><a class="dropdown-item" href="#">Highest Salary</a></li>
                             <li><a class="dropdown-item" href="#">Most Relevant</a></li>
-                            <li><a class="dropdown-item" href="#">Popular</a></li>
                         </ul>
                     </div>
                 </div>
@@ -434,23 +495,80 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        let skip = @Model.JobPostings.Count;
-        const take = 5;
+                 $(document).ready(function () {
+            // --- KHAI BÁO BIẾN ---
+            let currentTopK = 3;
+            const aiContent = $("#ai-content-area");
+            const loadMoreAiBtn = $("#load-more-ai");
 
-        $("#loadMoreBtn").on("click", function() {
-            const btn = $(this);
-            $("#btnText").addClass("opacity-0");
-            $("#btnSpinner").removeClass("d-none");
-
-            $.get("/Jobs/GetJobs", { skip: skip, take: take }, function(data) {
-                if (!data || data.trim() === "") {
-                    btn.html("No more opportunities").addClass("disabled");
+            // --- HÀM TẢI GỢI Ý AI ---
+            function loadAiJobs(count, isLoadMore = false) {
+                if (!isLoadMore) {
+                    // Lần đầu load: Hiện spinner và thông báo Aris đang kiểm tra
+                    aiContent.html(`
+                        <div class="card p-4 border-0 shadow-sm text-center mb-4" style="background: #f8faff; border: 1px dashed #6366f1 !important;">
+                            <div class="spinner-border text-primary mb-3" role="status"></div>
+                            <h6 class="fw-bold text-primary">Aris đang kiểm tra thông tin của bạn nè :3 ...</h6>
+                            <p class="small text-muted mb-0">Đang tìm kiếm công việc phù hợp nhất với kỹ năng của bạn</p>
+                        </div>
+                    `);
                 } else {
-                    $("#jobContainer").append(data);
-                    skip += take;
+                    // Nhấn "Xem thêm": Chỉ vô hiệu hóa nút và đổi text
+                    loadMoreAiBtn.prop('disabled', true).html('<span class="spinner-border spinner-border-sm me-2"></span>Đang tìm thêm...');
                 }
-                $("#btnText").removeClass("opacity-0");
-                $("#btnSpinner").addClass("d-none");
+
+                // Gọi API lấy dữ liệu
+                $.get("/Jobs/GetAiRecommendations", { topK: count })
+                    .done(function (data) {
+                        if (data && data.trim().length > 0) {
+                            aiContent.html(data);
+                            loadMoreAiBtn.show();
+                        } else {
+                            if (!isLoadMore) {
+                                aiContent.html('<div class="p-3 bg-light rounded-3 text-muted small text-center"><i class="bi bi-exclamation-circle me-2"></i>AI chưa tìm thấy công việc phù hợp.</div>');
+                            }
+                            loadMoreAiBtn.hide(); // Hết dữ liệu thì ẩn nút
+                        }
+                    })
+                    .fail(function () {
+                        aiContent.html('<div class="p-3 bg-light rounded-3 text-danger small text-center"><i class="bi bi-bug me-2"></i>Lỗi kết nối máy chủ AI.</div>');
+                        loadMoreAiBtn.hide();
+                    })
+                    .always(function() {
+                        loadMoreAiBtn.prop('disabled', false).text('Xem thêm gợi ý AI');
+                    });
+            }
+
+            // --- SỰ KIỆN ---
+
+            // 1. Chạy lần đầu khi load trang
+            loadAiJobs(currentTopK);
+
+            // 2. Click nút "Xem thêm gợi ý AI"
+            loadMoreAiBtn.click(function () {
+                currentTopK += 3;
+                loadAiJobs(currentTopK, true);
+            });
+
+            // 3. Xử lý nút "Show more results" (Cho danh sách Top Job Picks bên dưới)
+            $("#loadMoreBtn").click(function() {
+                const btn = $(this);
+                const spinner = $("#btnSpinner");
+                const btnText = $("#btnText");
+
+                btn.prop('disabled', true);
+                spinner.removeClass('d-none');
+                btnText.text('Loading...');
+
+                // Giả lập hoặc gọi API load thêm jobs thông thường
+                // $.get("/Jobs/GetMoreJobs", function(data) { ... });
+
+                // Demo tạm thời tắt sau 1s
+                setTimeout(() => {
+                    btn.prop('disabled', false);
+                    spinner.addClass('d-none');
+                    btnText.text('Show more results');
+                }, 1000);
             });
         });
     </script>

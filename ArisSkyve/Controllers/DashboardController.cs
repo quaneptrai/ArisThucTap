@@ -32,9 +32,11 @@ namespace ArisSkyve.Controllers
                 .Include(u => u.Profile.Education)
                 .FirstOrDefault(u => u.Id == userId);
             var posts = await _context.Posts
-                        .OrderByDescending(p => p.CreatedAt)
-                        .Take(10) 
-                        .ToListAsync();
+                            .Include(p => p.User)
+                                .ThenInclude(u => u.Profile)
+                            .OrderByDescending(p => p.CreatedAt)
+                            .Take(10)
+                            .ToListAsync();
             ViewBag.Posts = posts;
             return View(user);
         }

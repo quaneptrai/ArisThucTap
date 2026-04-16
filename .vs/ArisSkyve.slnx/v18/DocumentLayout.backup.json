@@ -3,96 +3,160 @@
   "WorkspaceRootPath": "D:\\ThucTap\\ArisThucTap\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\views\\profile\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\views\\profile\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\views\\jobs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\views\\jobs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\views\\jobs\\_jobcardpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\views\\jobs\\_jobcardpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\views\\jobs\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\views\\jobs\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\controllers\\jobscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\controllers\\jobscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\jobposting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\jobposting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\bussinessaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\bussinessaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\views\\jobs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\views\\jobs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\employesaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\employesaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\contactmethodtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\contactmethodtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\controllers\\jobscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\controllers\\jobscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\like.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\like.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\joblocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\joblocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\application\\dtos\\updatebiodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\application\\dtos\\updatebiodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\application\\dtos\\jobrecommendationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\application\\dtos\\jobrecommendationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\userrecommendations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\userrecommendations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\resume.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\resume.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\infrastructure\\data\\context\\arisdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\infrastructure\\data\\context\\arisdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\views\\profile\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\views\\profile\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\bussinessaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\bussinessaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\views\\shared\\_recommendedjobspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\views\\shared\\_recommendedjobspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\views\\jobs\\_jobcardpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\views\\jobs\\_jobcardpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\views\\shared\\_authlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\views\\shared\\_authlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\application\\dtos\\jobsindexviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\application\\dtos\\jobsindexviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\application\\dtos\\newuserinfordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\application\\dtos\\newuserinfordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\application\\dtos\\airesponsewrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\application\\dtos\\airesponsewrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\experiences.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\experiences.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\skills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\skills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\employesaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\employesaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\education.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\education.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\contactmethodtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\contactmethodtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\contactmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\contactmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\resume.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\resume.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\like.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\like.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\application\\dtos\\cvextractionresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\application\\dtos\\cvextractionresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\application\\dtos\\educationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\application\\dtos\\educationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\wwwroot\\favicon.ico||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\wwwroot\\favicon.ico||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\application\\dtos\\updatebiodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\application\\dtos\\updatebiodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\domain\\entities\\joblocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\domain\\entities\\joblocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\migrations\\20260406104754_changingprofiledbandaddinglikecomment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -153,6 +217,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\migrations\\20260406171950_changingtitletonull.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\migrations\\20260406171950_changingtitletonull.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\migrations\\20260412194909_updateresumeschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\migrations\\20260412194909_updateresumeschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\migrations\\20260412235436_utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\migrations\\20260412235436_utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|d:\\thuctap\\aristhuctap\\arisskyve\\migrations\\20260412234152_userrecommendations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E078EFC2-B489-707D-6317-95DC180BEFD5}|ArisSkyve\\ArisSkyve.csproj|solutionrelative:arisskyve\\migrations\\20260412234152_userrecommendations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -162,192 +238,60 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Program.cs",
-              "RelativeDocumentMoniker": "ArisSkyve\\Program.cs",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Program.cs",
-              "RelativeToolTip": "ArisSkyve\\Program.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T19:00:43.65Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Jobs\\Details.cshtml",
-              "RelativeDocumentMoniker": "ArisSkyve\\Views\\Jobs\\Details.cshtml",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Jobs\\Details.cshtml",
-              "RelativeToolTip": "ArisSkyve\\Views\\Jobs\\Details.cshtml",
-              "ViewState": "AgIAAEQBAAAAAAAAAAAowFwBAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-02T00:42:53.266Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "_JobCardPartial.cshtml",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Jobs\\_JobCardPartial.cshtml",
-              "RelativeDocumentMoniker": "ArisSkyve\\Views\\Jobs\\_JobCardPartial.cshtml",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Jobs\\_JobCardPartial.cshtml",
-              "RelativeToolTip": "ArisSkyve\\Views\\Jobs\\_JobCardPartial.cshtml",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAswBoAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-01T23:53:08.135Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Profile\\Index.cshtml",
-              "RelativeDocumentMoniker": "ArisSkyve\\Views\\Profile\\Index.cshtml",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Profile\\Index.cshtml",
-              "RelativeToolTip": "ArisSkyve\\Views\\Profile\\Index.cshtml",
-              "ViewState": "AgIAACABAAAAAAAAAAAIwCoBAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-06T10:11:51.42Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\appsettings.json",
-              "RelativeDocumentMoniker": "ArisSkyve\\appsettings.json",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\appsettings.json",
-              "RelativeToolTip": "ArisSkyve\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-01T01:32:25.783Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "JobsController.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Controllers\\JobsController.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Controllers\\JobsController.cs",
               "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Controllers\\JobsController.cs",
               "RelativeToolTip": "ArisSkyve\\Controllers\\JobsController.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAowF4AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAwwJkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-01T23:42:02.754Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Dashboard\\Index.cshtml",
-              "RelativeDocumentMoniker": "ArisSkyve\\Views\\Dashboard\\Index.cshtml",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Dashboard\\Index.cshtml",
-              "RelativeToolTip": "ArisSkyve\\Views\\Dashboard\\Index.cshtml",
-              "ViewState": "AgIAAJsBAAAAAAAAAAAAALEBAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-01T23:44:45.83Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Jobs\\Index.cshtml",
               "RelativeDocumentMoniker": "ArisSkyve\\Views\\Jobs\\Index.cshtml",
               "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Jobs\\Index.cshtml",
               "RelativeToolTip": "ArisSkyve\\Views\\Jobs\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAI0CAAAAAAAAAAAAADICAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-01T01:30:31.87Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "JobPosting.cs",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\JobPosting.cs",
-              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\JobPosting.cs",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\JobPosting.cs",
-              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\JobPosting.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAuwC0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-01T17:56:37.053Z"
+              "DocumentIndex": 0,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Jobs\\Details.cshtml",
+              "RelativeDocumentMoniker": "ArisSkyve\\Views\\Jobs\\Details.cshtml",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Jobs\\Details.cshtml",
+              "RelativeToolTip": "ArisSkyve\\Views\\Jobs\\Details.cshtml",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAAAIUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-02T00:42:53.266Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "20260406174322_UpdateBussinessAccount.cs",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406174322_UpdateBussinessAccount.cs",
-              "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260406174322_UpdateBussinessAccount.cs",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406174322_UpdateBussinessAccount.cs",
-              "RelativeToolTip": "ArisSkyve\\Migrations\\20260406174322_UpdateBussinessAccount.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T17:43:23.081Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "BussinessAccount.cs",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\BussinessAccount.cs",
-              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\BussinessAccount.cs",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\BussinessAccount.cs",
-              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\BussinessAccount.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T17:18:55.624Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Comment.cs",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Comment.cs",
-              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\Comment.cs",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Comment.cs",
-              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\Comment.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAiwBcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T10:30:34.052Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ContactMethodType.cs",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\ContactMethodType.cs",
-              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\ContactMethodType.cs",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\ContactMethodType.cs",
-              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\ContactMethodType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T10:17:49.471Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "EmployesAccount.cs",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\EmployesAccount.cs",
-              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\EmployesAccount.cs",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\EmployesAccount.cs",
-              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\EmployesAccount.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAA6wBsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T10:13:03.886Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 5,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Controllers\\DashboardController.cs",
               "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Controllers\\DashboardController.cs",
               "RelativeToolTip": "ArisSkyve\\Controllers\\DashboardController.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAADwvzYAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAQwHMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-06T15:05:33.507Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 4,
               "Title": "ProfileController.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Controllers\\ProfileController.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Controllers\\ProfileController.cs",
@@ -359,103 +303,307 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Like.cs",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Like.cs",
-              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\Like.cs",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Like.cs",
-              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\Like.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "JobPosting.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\JobPosting.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\JobPosting.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\JobPosting.cs",
+              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\JobPosting.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAiwC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T10:30:07.721Z"
+              "WhenOpened": "2026-04-01T17:56:37.053Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Post.cs",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Post.cs",
-              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\Post.cs",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Post.cs",
-              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\Post.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAA6wBAAAAAtAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "ArisSkyve\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAACYBAAAAAAAAAAAYwDYBAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T10:18:48.172Z"
+              "WhenOpened": "2026-04-08T09:32:40.13Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "20260406171950_ChangingTitleToNull.cs",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406171950_ChangingTitleToNull.cs",
-              "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260406171950_ChangingTitleToNull.cs",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406171950_ChangingTitleToNull.cs",
-              "RelativeToolTip": "ArisSkyve\\Migrations\\20260406171950_ChangingTitleToNull.cs",
+              "DocumentIndex": 55,
+              "Title": "20260412235436_Utils.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260412235436_Utils.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260412235436_Utils.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260412235436_Utils.cs",
+              "RelativeToolTip": "ArisSkyve\\Migrations\\20260412235436_Utils.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T23:54:37.122Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "JobRecommendationDTO.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Application\\DTOs\\JobRecommendationDTO.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Application\\DTOs\\JobRecommendationDTO.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Application\\DTOs\\JobRecommendationDTO.cs",
+              "RelativeToolTip": "ArisSkyve\\Application\\DTOs\\JobRecommendationDTO.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T21:55:58.381Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserRecommendations.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\UserRecommendations.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\UserRecommendations.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\UserRecommendations.cs",
+              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\UserRecommendations.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T23:34:01.586Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ArisSkyve\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ArisSkyve\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T17:19:50.911Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-12T23:51:16.012Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "JobLocation.cs",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\JobLocation.cs",
-              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\JobLocation.cs",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\JobLocation.cs",
-              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\JobLocation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-01T18:03:42.639Z"
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Profile\\Index.cshtml",
+              "RelativeDocumentMoniker": "ArisSkyve\\Views\\Profile\\Index.cshtml",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Profile\\Index.cshtml",
+              "RelativeToolTip": "ArisSkyve\\Views\\Profile\\Index.cshtml",
+              "ViewState": "AgIAAKkBAAAAAAAAAAAqwBMCAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-06T10:11:51.42Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "UpdateBioDto.cs",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Application\\DTOs\\UpdateBioDto.cs",
-              "RelativeDocumentMoniker": "ArisSkyve\\Application\\DTOs\\UpdateBioDto.cs",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Application\\DTOs\\UpdateBioDto.cs",
-              "RelativeToolTip": "ArisSkyve\\Application\\DTOs\\UpdateBioDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "BussinessAccount.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\BussinessAccount.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\BussinessAccount.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\BussinessAccount.cs",
+              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\BussinessAccount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T11:51:27.414Z"
+              "WhenOpened": "2026-04-06T17:18:55.624Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "20260406160126_AddingUpdateAndThings.cs",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406160126_AddingUpdateAndThings.cs",
-              "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260406160126_AddingUpdateAndThings.cs",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406160126_AddingUpdateAndThings.cs",
-              "RelativeToolTip": "ArisSkyve\\Migrations\\20260406160126_AddingUpdateAndThings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAiAAAAAAAAAA==",
+              "DocumentIndex": 56,
+              "Title": "20260412234152_UserRecommendations.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260412234152_UserRecommendations.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260412234152_UserRecommendations.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260412234152_UserRecommendations.cs",
+              "RelativeToolTip": "ArisSkyve\\Migrations\\20260412234152_UserRecommendations.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T16:01:26.219Z"
+              "WhenOpened": "2026-04-12T23:41:52.371Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 11,
               "Title": "ArisDBContext.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Infrastructure\\Data\\Context\\ArisDBContext.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Infrastructure\\Data\\Context\\ArisDBContext.cs",
               "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Infrastructure\\Data\\Context\\ArisDBContext.cs",
               "RelativeToolTip": "ArisSkyve\\Infrastructure\\Data\\Context\\ArisDBContext.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAIwDkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAMwBcAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-01T16:04:05.912Z"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Resume.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Resume.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\Resume.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Resume.cs",
+              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\Resume.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAcwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T11:06:13.894Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "_RecommendedJobsPartial.cshtml",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Shared\\_RecommendedJobsPartial.cshtml",
+              "RelativeDocumentMoniker": "ArisSkyve\\Views\\Shared\\_RecommendedJobsPartial.cshtml",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Shared\\_RecommendedJobsPartial.cshtml",
+              "RelativeToolTip": "ArisSkyve\\Views\\Shared\\_RecommendedJobsPartial.cshtml",
+              "ViewState": "AgIAADQAAAAAAAAAAAAQwEsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-12T22:16:29.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "_JobCardPartial.cshtml",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Jobs\\_JobCardPartial.cshtml",
+              "RelativeDocumentMoniker": "ArisSkyve\\Views\\Jobs\\_JobCardPartial.cshtml",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Jobs\\_JobCardPartial.cshtml",
+              "RelativeToolTip": "ArisSkyve\\Views\\Jobs\\_JobCardPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-01T23:53:08.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "_AuthLayout.cshtml",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Shared\\_AuthLayout.cshtml",
+              "RelativeDocumentMoniker": "ArisSkyve\\Views\\Shared\\_AuthLayout.cshtml",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Shared\\_AuthLayout.cshtml",
+              "RelativeToolTip": "ArisSkyve\\Views\\Shared\\_AuthLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-12T23:17:53.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "JobsIndexViewModel.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Application\\DTOs\\JobsIndexViewModel.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Application\\DTOs\\JobsIndexViewModel.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Application\\DTOs\\JobsIndexViewModel.cs",
+              "RelativeToolTip": "ArisSkyve\\Application\\DTOs\\JobsIndexViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T22:41:54.756Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AiResponseWrapper.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Application\\DTOs\\AiResponseWrapper.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Application\\DTOs\\AiResponseWrapper.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Application\\DTOs\\AiResponseWrapper.cs",
+              "RelativeToolTip": "ArisSkyve\\Application\\DTOs\\AiResponseWrapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T22:42:34.975Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "NewUserInforDTO.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Application\\DTOs\\NewUserInforDTO.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Application\\DTOs\\NewUserInforDTO.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Application\\DTOs\\NewUserInforDTO.cs",
+              "RelativeToolTip": "ArisSkyve\\Application\\DTOs\\NewUserInforDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T23:02:20.601Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 20,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "ArisSkyve\\Views\\_ViewImports.cshtml",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "ArisSkyve\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-12T22:44:07.421Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "20260412194909_UpdateResumeSchema.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260412194909_UpdateResumeSchema.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260412194909_UpdateResumeSchema.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260412194909_UpdateResumeSchema.cs",
+              "RelativeToolTip": "ArisSkyve\\Migrations\\20260412194909_UpdateResumeSchema.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAzwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T19:49:10.022Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Skills.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Skills.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\Skills.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Skills.cs",
+              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\Skills.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T20:40:34.667Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "EmployesAccount.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\EmployesAccount.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\EmployesAccount.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\EmployesAccount.cs",
+              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\EmployesAccount.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA1wBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T10:13:03.886Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Experiences.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Experiences.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\Experiences.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Experiences.cs",
+              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\Experiences.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T20:41:05.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Education.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Education.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\Education.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Education.cs",
+              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\Education.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA9wBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T20:42:00.847Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\User.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\User.cs",
               "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\User.cs",
               "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\User.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAowA0AAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-06T10:13:55.517Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 26,
+              "Title": "ContactMethodType.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\ContactMethodType.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\ContactMethodType.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\ContactMethodType.cs",
+              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\ContactMethodType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T10:17:49.471Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
               "Title": "ContactMethod.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\ContactMethod.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\ContactMethod.cs",
@@ -467,7 +615,175 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Like.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Like.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\Like.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Like.cs",
+              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\Like.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T10:30:07.721Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "CvExtractionResultDTO.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Application\\DTOs\\CvExtractionResultDTO.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Application\\DTOs\\CvExtractionResultDTO.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Application\\DTOs\\CvExtractionResultDTO.cs",
+              "RelativeToolTip": "ArisSkyve\\Application\\DTOs\\CvExtractionResultDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T19:03:00.685Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "EducationDTO.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Application\\DTOs\\EducationDTO.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Application\\DTOs\\EducationDTO.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Application\\DTOs\\EducationDTO.cs",
+              "RelativeToolTip": "ArisSkyve\\Application\\DTOs\\EducationDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T19:03:28.377Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\appsettings.json",
+              "RelativeDocumentMoniker": "ArisSkyve\\appsettings.json",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\appsettings.json",
+              "RelativeToolTip": "ArisSkyve\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAD2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-01T01:32:25.783Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 32,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Program.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Program.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Program.cs",
+              "RelativeToolTip": "ArisSkyve\\Program.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T19:00:43.65Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "favicon.ico - Icon [32x32, 32 bit, BMP]",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\wwwroot\\favicon.ico",
+              "RelativeDocumentMoniker": "ArisSkyve\\wwwroot\\favicon.ico",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\wwwroot\\favicon.ico - Icon [32x32, 32 bit, BMP]",
+              "RelativeToolTip": "ArisSkyve\\wwwroot\\favicon.ico - Icon [32x32, 32 bit, BMP]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001525|",
+              "WhenOpened": "2026-04-08T10:32:33.464Z",
+              "EditorCaption": " - Icon [32x32, 32 bit, BMP]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "ArisSkyve\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "ArisSkyve\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-01T23:44:45.83Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "UpdateBioDto.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Application\\DTOs\\UpdateBioDto.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Application\\DTOs\\UpdateBioDto.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Application\\DTOs\\UpdateBioDto.cs",
+              "RelativeToolTip": "ArisSkyve\\Application\\DTOs\\UpdateBioDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T11:51:27.414Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "20260406174322_UpdateBussinessAccount.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406174322_UpdateBussinessAccount.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260406174322_UpdateBussinessAccount.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406174322_UpdateBussinessAccount.cs",
+              "RelativeToolTip": "ArisSkyve\\Migrations\\20260406174322_UpdateBussinessAccount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T17:43:23.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Comment.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Comment.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\Comment.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Comment.cs",
+              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\Comment.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAiwBcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T10:30:34.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Post.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Post.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\Post.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Post.cs",
+              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\Post.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA6wBAAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T10:18:48.172Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "20260406171950_ChangingTitleToNull.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406171950_ChangingTitleToNull.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260406171950_ChangingTitleToNull.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406171950_ChangingTitleToNull.cs",
+              "RelativeToolTip": "ArisSkyve\\Migrations\\20260406171950_ChangingTitleToNull.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T17:19:50.911Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "JobLocation.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\JobLocation.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\JobLocation.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\JobLocation.cs",
+              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\JobLocation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T18:03:42.639Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "20260406160126_AddingUpdateAndThings.cs",
+              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406160126_AddingUpdateAndThings.cs",
+              "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260406160126_AddingUpdateAndThings.cs",
+              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406160126_AddingUpdateAndThings.cs",
+              "RelativeToolTip": "ArisSkyve\\Migrations\\20260406160126_AddingUpdateAndThings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T16:01:26.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
               "Title": "20260406113309_AddingConstraintToContactMethood.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406113309_AddingConstraintToContactMethood.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260406113309_AddingConstraintToContactMethood.cs",
@@ -479,7 +795,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 49,
               "Title": "20260406112542_ChangingCursorContactMethoodToEmployeesAccount.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406112542_ChangingCursorContactMethoodToEmployeesAccount.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260406112542_ChangingCursorContactMethoodToEmployeesAccount.cs",
@@ -491,19 +807,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Resume.cs",
-              "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Resume.cs",
-              "RelativeDocumentMoniker": "ArisSkyve\\Domain\\Entities\\Resume.cs",
-              "ToolTip": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Domain\\Entities\\Resume.cs",
-              "RelativeToolTip": "ArisSkyve\\Domain\\Entities\\Resume.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAcwAoAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T11:06:13.894Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 50,
               "Title": "20260406111254_ChangingContactmethoodToProfile.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406111254_ChangingContactmethoodToProfile.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260406111254_ChangingContactmethoodToProfile.cs",
@@ -515,7 +819,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 39,
               "Title": "20260406104754_ChangingProfileDBAndAddingLikeComment.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406104754_ChangingProfileDBAndAddingLikeComment.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260406104754_ChangingProfileDBAndAddingLikeComment.cs",
@@ -527,7 +831,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 40,
               "Title": "20260406104534_ChangingConstraint.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406104534_ChangingConstraint.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260406104534_ChangingConstraint.cs",
@@ -539,7 +843,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 41,
               "Title": "20260406104314_ChangingProfileDBAndAddingLikeComment.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260406104314_ChangingProfileDBAndAddingLikeComment.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260406104314_ChangingProfileDBAndAddingLikeComment.cs",
@@ -551,7 +855,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 42,
               "Title": "20260401205734_AddIsActiveForJobPost.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260401205734_AddIsActiveForJobPost.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260401205734_AddIsActiveForJobPost.cs",
@@ -563,7 +867,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 43,
               "Title": "20260401181143_AddingJobLocationRefactJobPosting.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260401181143_AddingJobLocationRefactJobPosting.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260401181143_AddingJobLocationRefactJobPosting.cs",
@@ -575,7 +879,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 45,
               "Title": "20260401185258_ChangingMaxLengthOfAddress.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260401185258_ChangingMaxLengthOfAddress.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260401185258_ChangingMaxLengthOfAddress.cs",
@@ -587,7 +891,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 44,
               "Title": "20260401185424_ChangingMaxLengthOfWorkTime.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260401185424_ChangingMaxLengthOfWorkTime.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260401185424_ChangingMaxLengthOfWorkTime.cs",
@@ -599,7 +903,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 46,
               "Title": "20260401181800_ChangingJobLocationProperty.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260401181800_ChangingJobLocationProperty.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260401181800_ChangingJobLocationProperty.cs",
@@ -611,7 +915,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 47,
               "Title": "20260401160716_AddingDiscriminator.cs",
               "DocumentMoniker": "D:\\ThucTap\\ArisThucTap\\ArisSkyve\\Migrations\\20260401160716_AddingDiscriminator.cs",
               "RelativeDocumentMoniker": "ArisSkyve\\Migrations\\20260401160716_AddingDiscriminator.cs",

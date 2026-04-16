@@ -608,7 +608,6 @@ D:\ThucTap\ArisThucTap\ArisSkyve\obj\Debug\net10.0\scopedcss\bundle\ArisSkyve.st
 D:\ThucTap\ArisThucTap\ArisSkyve\obj\Debug\net10.0\scopedcss\projectbundle\ArisSkyve.bundle.scp.css
 D:\ThucTap\ArisThucTap\ArisSkyve\obj\Debug\net10.0\compressed\zf006wjgs7-{0}-3r8b2a0bt1-3r8b2a0bt1.gz
 D:\ThucTap\ArisThucTap\ArisSkyve\obj\Debug\net10.0\compressed\ynrgwzx2rc-{0}-3y8m7uxm6z-3y8m7uxm6z.gz
-D:\ThucTap\ArisThucTap\ArisSkyve\obj\Debug\net10.0\compressed\mjmc1cz3nq-{0}-61n19gt1b8-61n19gt1b8.gz
 D:\ThucTap\ArisThucTap\ArisSkyve\obj\Debug\net10.0\compressed\mab4evln6o-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 D:\ThucTap\ArisThucTap\ArisSkyve\obj\Debug\net10.0\compressed\chew4fdz0u-{0}-t1cqhe9u97-t1cqhe9u97.gz
 D:\ThucTap\ArisThucTap\ArisSkyve\obj\Debug\net10.0\compressed\utvmyf8r4n-{0}-c2jlpeoesf-c2jlpeoesf.gz
@@ -683,3 +682,4 @@ D:\ThucTap\ArisThucTap\ArisSkyve\obj\Debug\net10.0\refint\ArisSkyve.dll
 D:\ThucTap\ArisThucTap\ArisSkyve\obj\Debug\net10.0\ArisSkyve.pdb
 D:\ThucTap\ArisThucTap\ArisSkyve\obj\Debug\net10.0\ArisSkyve.genruntimeconfig.cache
 D:\ThucTap\ArisThucTap\ArisSkyve\obj\Debug\net10.0\ref\ArisSkyve.dll
+D:\ThucTap\ArisThucTap\ArisSkyve\obj\Debug\net10.0\compressed\mjmc1cz3nq-{0}-jlqv668wq8-jlqv668wq8.gz

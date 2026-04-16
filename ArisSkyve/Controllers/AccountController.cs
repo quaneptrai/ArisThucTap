@@ -218,7 +218,11 @@ namespace ArisSkyve.Controllers
                 {
                     Email = email!,
                     Username = name!,
-                    PasswordHash = ""
+                    PasswordHash = "",
+                    Profile = new EmployesAccount
+                    {
+                        AvatarUrl = "/uploads/avatars/Tohka.png"
+                    }
                 };
 
                 _context.Users.Add(user);
@@ -277,7 +281,11 @@ namespace ArisSkyve.Controllers
                 {
                     Email = email!,
                     Username = name!,
-                    PasswordHash = ""
+                    PasswordHash = "",
+                    Profile = new EmployesAccount
+                    {
+                        AvatarUrl = "/uploads/avatars/Tohka.png"
+                    }
                 };
 
                 _context.Users.Add(user);

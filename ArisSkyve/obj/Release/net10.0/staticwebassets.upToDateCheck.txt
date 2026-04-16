@@ -63,6 +63,7 @@ wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
 wwwroot\uploads\avatars\Arisu.png
+wwwroot\uploads\avatars\Tohka.png
 D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\css\Dashboard.css
 D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\css\site.css
 D:\ThucTap\ArisThucTap\ArisSkyve\wwwroot\favicon.ico

@@ -7,7 +7,7 @@ namespace ArisSkyve.Domain.Entities
         [Key]
         public int Id { get; set; }
 
-        public string Name { get; set; } = string.Empty;
+        public string SkillName { get; set; } = string.Empty;
 
         public int ResumeId { get; set; }
         public Resume Resume { get; set; }

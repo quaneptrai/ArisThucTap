@@ -6,6 +6,8 @@
         public string Degree { get; set; }
         public string FieldOfStudy { get; set; }
         public int StartYear { get; set; }
+        public double gpa { get; set; }
+        public string degree { get; set; }
         public int? EndYear { get; set; }
     }
 }

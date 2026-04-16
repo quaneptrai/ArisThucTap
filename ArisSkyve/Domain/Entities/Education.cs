@@ -17,7 +17,7 @@ namespace ArisSkyve.Domain.Entities
 
         [Required]
         public int StartYear { get; set; }
-
+        public float GPA { get; set; }
         public int ResumeId { get; set; }
         public Resume Resume { get; set; }
         public int EmployesAccountId { get; set; }

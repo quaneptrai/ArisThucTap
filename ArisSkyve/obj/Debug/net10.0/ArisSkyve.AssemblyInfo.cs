@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ArisSkyve")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+99955a20316be15a6451418246af525dea4c868a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+78c24595cefd780a3ad7546ef569190b40046bbe")]
 [assembly: System.Reflection.AssemblyProductAttribute("ArisSkyve")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ArisSkyve")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -21,6 +21,7 @@ namespace ArisSkyve.Infrastructure.Data.Context
         public DbSet<JobLocation> JobLocations { get; set; }
         public DbSet<Like> Likes { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<UserRecommendations> UserRecommendations { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -62,7 +63,9 @@ namespace ArisSkyve.Infrastructure.Data.Context
                 .WithMany(p => p.ContactMethods)
                 .HasForeignKey(c => c.idEmployesAccount)
                 .OnDelete(DeleteBehavior.Cascade);
-
+            modelBuilder.Entity<Resume>()
+                .HasIndex(r => r.EmployeeId)
+                .IsUnique();
             // Discriminator cho Profiles
             modelBuilder.Entity<EmployesAccount>()
                 .HasDiscriminator<string>("Discriminator")
